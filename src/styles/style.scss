@@ -1,0 +1,409 @@
+@import "./breakpoints.scss";
+@import url("https://use.typekit.net/jjb0nrs.css"); 
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900");
+@import url('https://fonts.googleapis.com/css?family=Changa+One|Knewave|Lemon|Lilita+One|Londrina+Solid');
+
+$blue: #62C5E3;
+$pink: #F066A2;
+$purple: #B36AF2;
+$green: #96FF03;
+$yellow: #FEBD11;
+$red: #ED2327;
+$white: #fff;
+$black: #000;
+
+$noto: noto-sans, sans-serif;
+$roboto: 'Roboto', sans-serif;
+$lilita: 'Lilita One', cursive;
+
+$phoneHeight:726px;
+$phoneWidth:611px;
+$phoneSmall:370px;
+
+@keyframes blinky { 
+    0% {background:transparent;}
+    49% {background:transparent;}
+    50% {background: $red;}
+}
+
+@keyframes spin_out {
+    0% { transform: translateY(0%);opacity:1; }
+    100% { transform: translateY(-100%);opacity: 0; }
+}
+
+@keyframes spin_in {
+    0% { transform: translateY(27%);opacity: 0; }
+    100% { transform: translateY(0%);opacity: 1; }
+}
+
+body{
+    font-family: $roboto;
+    font-weight: 300;
+}
+
+.wrapper{
+    position: absolute;
+    width:100%;
+    height:100%;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    outline: 8px solid $white;
+    outline-offset: -8px;
+    background: url(../images/bg-dark-1920x1080.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/bg-dark-1920x1080.jpg', sizingMethod='scale');
+        -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/bg-dark-1920x1080.jpg', sizingMethod='scale')";
+    .navigation{
+        .menu-items{
+            .menu-items-list{
+                list-style-type: none;
+                padding: 0;
+                -webkit-padding-start: 0;
+                top: 0; 
+                -webkit-transition: 0.5s all;
+                -moz-transition: 0.5s all;
+                -ms-transition: 0.5s all;
+                -o-transition: 0.5s all;
+                transition: 0.5s all;
+                transition-property: all;
+                transition-duration: 0.5s;
+                transition-timing-function: ease;
+                transition-delay: 0s;
+                .nav-option{
+                    a{
+                        font-family: $noto; 
+                        font-weight: 900;
+                        color: $white;
+                        letter-spacing: 2px;
+                        touch-action: manipulation;
+                        text-decoration: none;
+                        text-transform: uppercase;
+                        white-space: pre;
+                        display: block;
+                        animation-fill-mode: forwards;
+                        &:hover{
+                            color: $red;
+                        }
+
+                        @media screen and (max-width:$phoneWidth), screen and (max-height:$phoneHeight){
+                            font-family: $noto; 
+                            font-weight: 900;
+                            letter-spacing: 0px;
+                        }
+                    }
+                    /* video-prod */
+                    &:nth-child(1){
+                        background-color: $pink;
+                        font-size: 50px;
+                        line-height: 50px;
+                        left: -5px;
+                        top: 0;
+                        z-index: 999;
+                        padding:  15px 50px 15px 3vh;
+                        border-bottom: 8px solid $white;
+                        border-right: 8px solid $white;
+                        transform-origin: 0% 0;
+                        position: absolute;
+                        width: 370px;
+                        text-align: center;
+                        @media screen and (max-width:$phoneWidth) and (min-width:$phoneSmall), screen and (max-height:$phoneHeight){
+                            font-size: 35px;
+                            line-height: 35px;
+                            left: 0px;
+                            top: 0;
+                            padding:  20px 10px 20px 2vh;
+                            width: 245px;
+                        }
+
+                        @media screen and (max-width:$phoneSmall), screen and (max-height:$phoneHeight){
+                            font-size: 28px;
+                            line-height: 28px;
+                            left: 0px;
+                            top: 0;
+                            padding:  15px 15px 15px 3vh;
+                            width: 205px;
+                        }
+
+                        -webkit-transform: translate(0%, 0);
+                        -moz-transform: translate(0%, 0);
+                        -ms-transform: translate(0%, 0);
+                        -o-transform: translate(0%, 0);
+                        transform: translate(0%, 0);
+                        transition-property: all;
+                        transition-duration: 0.5s;
+                        transition-timing-function: ease;
+                        transition-delay: 0s;
+                    }
+                    /* about */
+                    &:nth-child(2){
+                        background-color: $blue;
+                        font-size: 60px;
+                        line-height: 50px;
+                        top: 255px;
+                        right: 0px;
+                        z-index: 999;
+                        border-right: 8px solid $white;
+                        border-bottom: 8px solid $white;
+                        padding:  55px 100px 55px 100px;
+                        position: absolute;
+                        transform-origin: 100% 0;
+
+                        @media screen and (max-width:$phoneWidth), screen and (max-height:$phoneHeight){
+                            font-size: 35px;
+                            line-height: 35px;
+                            top: 85px;
+                            right: 0px;
+                            padding:  20px 20px 20px 20px;
+                        }
+
+                        @media screen and (max-width:$phoneWidth) and (min-width:$phoneSmall), screen and (max-height:$phoneHeight){
+                            font-size: 38px;
+                            line-height: 35px;
+                            top: 112px;
+                            right: 0px;
+                            padding:  22px 30px 22px 30px;
+                        }
+                        
+                        -webkit-transform: translate(0, 100%) rotate(90deg);
+                        -moz-transform: translate(0, 100%) rotate(90deg);
+                        -ms-transform: translate(0, 100%) rotate(90deg);
+                        -o-transform: translate(0, 100%) rotate(90deg);
+                        transform: translate(0, 100%) rotate(90deg);
+                        transition-property: all;
+                        transition-duration: 0.5s;
+                        transition-timing-function: ease;
+                        transition-delay: 0s;
+                    }
+                    /* contact */
+                    &:nth-child(3){
+                        background-color: $purple;
+                        font-size: 60px;
+                        line-height: 50px;
+                        bottom: 149px;
+                        left: 149px;
+                        z-index: 998;
+                        border-right: 8px solid $white;
+                        border-bottom: 8px solid $white;
+                        padding:  45px 30px 45px 30px;
+                        position: absolute;
+                        transform-origin: 0% 100%;
+
+                        @media screen and (max-width:$phoneWidth), screen and (max-height:$phoneHeight){
+                            font-size: 40px;
+                            line-height: 40px;
+                            bottom: 89px;
+                            left: 85px;
+                            padding:  20px 20px 20px 20px;
+                        }
+                        
+                        -webkit-transform: translate(0, 100%) rotate(-90deg);
+                        -moz-transform: translate(0, 100%) rotate(-90deg);
+                        -ms-transform: translate(0, 100%) rotate(-90deg);
+                        -o-transform: translate(0, 100%) rotate(-90deg);
+                        transform: translate(0, 100%) rotate(-90deg);
+                        transition-property: all;
+                        transition-duration: 0.5s;
+                        transition-timing-function: ease;
+                        transition-delay: 0s;
+                    }
+                    /* media */
+                    &:nth-child(4){
+                        background-color: $green;
+                        font-size: 50px;
+                        line-height: 50px;
+                        bottom: 267px;
+                        left: 141px;
+                        z-index: 999;
+                        border-right: 8px solid $white;
+                        border-top: 8px solid $white;
+                        padding:  28px 30px 180px 30px;
+                        position: absolute;
+                        transform-origin: 0% 100%;
+
+                        @media screen and (max-width:$phoneWidth), screen and (max-height:$phoneHeight){
+                            font-size: 33px;
+                            line-height: 30px;
+                            bottom: 190.5px;
+                            left: 77px;
+                            padding:  30px 23px 122px 23px;
+                        }
+                        
+                        -webkit-transform: translate(0, 100%);
+                        -moz-transform: translate(0, 100%);
+                        -ms-transform: translate(0, 100%);
+                        -o-transform: translate(0, 100%);
+                        transform: translate(0, 100%);
+                        transition-property: all;
+                        transition-duration: 0.5s;
+                        transition-timing-function: ease;
+                        transition-delay: 0s;
+                    }
+                    &:nth-child(5), &:nth-child(6){
+                        font-size: 30px;
+                        line-height: 30px;
+                        left: 137px;
+                        z-index: 999;
+                        position: absolute;
+
+                        @media screen and (max-width:$phoneWidth), screen and (max-height:$phoneHeight){
+                            font-size: 20px;
+                            line-height: 15px;
+                            left: 81px;
+                        }
+
+                        transform-origin: 0% 100%;
+                        -webkit-transform: translate(0, 100%);
+                        -moz-transform: translate(0, 100%);
+                        -ms-transform: translate(0, 100%);
+                        -o-transform: translate(0, 100%);
+                        transform: translate(0, 100%);
+                        transition-property: all;
+                        transition-duration: 0.5s;
+                        transition-timing-function: ease;
+                        transition-delay: 0s;
+                        a{
+                            text-transform: none;
+                        }
+                    }
+                    /* instagram */
+                    &:nth-child(5){
+                        padding: 50px 40px 10px 30px;
+                        bottom: 160px;
+                        @media screen and (max-width:$phoneWidth), screen and (max-height:$phoneHeight){
+                            padding: 20px 20px 20px 20px;
+                            bottom: 87px;
+                        }
+                    }
+                    /* youtube */
+                    &:nth-child(6){
+                        padding: 10px 40px 20px 30px;
+                        bottom: 75px;
+                        @media screen and (max-width:$phoneWidth), screen and (max-height:$phoneHeight){
+                            padding: 20px 20px 20px 20px;
+                            bottom: 57px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .logo{
+        .logo-image{
+            position: absolute !important;
+            z-index: 9;
+            right: 0;
+            bottom: 0;
+            background: $yellow;
+            padding: 0px 20px 0px 20px;
+            border-top: 8px solid $white;
+            border-left: 8px solid $white;
+
+            @media screen and (max-width:$phoneWidth), screen and (max-height:$phoneHeight){
+                bottom: 0px;
+                right: 0px;
+                padding:  0px 15px 0px 15px;
+            }
+
+            -webkit-transition: 0.5s all;
+            -moz-transition: 0.5s all;
+            -ms-transition: 0.5s all;
+            -o-transition: 0.5s all;
+            transition: 0.5s all;
+            transition-property: all;
+            transition-duration: 0.5s;
+            transition-timing-function: ease;
+            transition-delay: 0s;
+            picture img{
+                width: 80px !important;
+                position: relative !important;
+                right: 35px !important;
+                top: 50% !important;
+                transform: translateY(-50%);
+
+                @media screen and (max-width:$phoneWidth), screen and (max-height:$phoneHeight){
+                    width: 50px !important;
+                }
+            }
+        }
+        
+        .rec span span{
+            width:18px;
+            height:18px;
+            display:inline-block;
+            background:$red;
+            border-radius:50%;
+            margin-right:10px;
+            animation: blinky 1.5s ease-in-out infinite;
+            z-index: 9999;
+            position: absolute;
+            right: 64px;
+            bottom: 121px;
+            @media screen and (max-width:$phoneWidth), screen and (max-height:$phoneHeight){
+                width:12px;
+                height:12px;
+                right: 39px;
+                bottom: 77px;
+            }
+        }
+    }
+    .language-selection-nav{
+        .language-items{
+            .language-items-list{
+                list-style-type: none;
+                padding: 0;
+                -webkit-padding-start: 0;
+                top: 0; 
+                -webkit-transition: 0.5s all;
+                -moz-transition: 0.5s all;
+                -ms-transition: 0.5s all;
+                -o-transition: 0.5s all;
+                transition: 0.5s all;
+                transition-property: all;
+                transition-duration: 0.5s;
+                transition-timing-function: ease;
+                transition-delay: 0s;
+                .language-option{
+                    button{
+                        position: absolute;
+                        bottom:260px;
+                        right:18px;
+                        background-color:$white;
+                        border-style:none;
+                        z-index:9999;
+                        @media screen and (max-width:$phoneWidth), screen and (max-height:$phoneHeight){
+                            bottom: 170px;
+                        }
+                        a{
+                            font-family: $noto; 
+                            font-weight: 500;
+                            font-size: 20px;
+                            color: $black;
+                            letter-spacing: 2px;
+                            touch-action: manipulation;
+                            text-decoration: none;
+                            text-transform: uppercase;
+                            &:hover{
+                                color: $red;
+                            }
+                            @media screen and (max-width:$phoneWidth), screen and (max-height:$phoneHeight){
+                                font-size: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+        
+
+}
+
+/* @include media(''){
+
+}
+*/

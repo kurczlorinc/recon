@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "commonjs",
+        "lib": [
+            "dom",
+            "es2017"
+        ],
+        // "allowJs": true,
+        // "checkJs": true,
+        "jsx": "react",
+        "strict": true,
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "skipLibCheck": true
+    },
+    //if files list is empty, then all files are included. 
+    // If we list files, only those files are included.
+    "files": [
+        "src/components/animatedComponent.tsx"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
