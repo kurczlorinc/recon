@@ -1,9 +1,10 @@
 import React from 'react'
+import SubLayout from '../components/subLayout'
 
-export default function about() {
+export default function About() {
     return (
-        <div>
-            Hello from about
-        </div>
+        <SubLayout>
+            <div>About</div>
+        </SubLayout>
     )
 }

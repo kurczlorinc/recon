@@ -1,9 +1,10 @@
 import React from 'react'
+import SubLayout from '../components/subLayout'
 
-export default function contact() {
+export default function Contact() {
     return (
-        <div>
-            Hello from Contact.
-        </div>
+        <SubLayout>
+            <div>Contact</div>
+        </SubLayout>
     )
 }

@@ -1,9 +1,10 @@
 import React from 'react'
+import SubLayout from '../components/subLayout'
 
-export default function media() {
+export default function Media() {
     return (
-        <div>
-            Hello from Media
-        </div>
+        <SubLayout>
+            <div>Media</div>
+        </SubLayout>
     )
 }

@@ -1,20 +1,11 @@
 import React from "react"
+import "../styles/reset.scss"
 import "../styles/style.scss"
 
-import Home from "../components/home"
+import Menu from "../components/menu"
 
 
-const IndexPage = ({ data }) => <Home img={data.img.childImageSharp.fluid}  />
+const IndexPage = () => <Menu main="main" />
 
-export const query = graphql`
-{
-  img: file(relativePath: { eq: "recon-logo.png" }) {
-    childImageSharp {
-      fluid(maxWidth: 100) {
-        ...GatsbyImageSharpFluid_tracedSVG
-      }
-    }
-  }
-}`
 
 export default IndexPage

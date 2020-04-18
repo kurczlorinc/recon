@@ -2,13 +2,13 @@ import * as React from "react"
 import * as ReactDOM from "react-dom"
 import {Link as GatsbyLink} from 'gatsby'
 
-export default class AnimatedComponent extends React.Component<{ titles: string[] },
+export default class AnimatedComponent extends React.Component<{ titles: string[], to: string, className: string, activeClassName: string  },
     { idx: number, animating: boolean }>{
     private timerCallback: (() => void) & { isValid?: boolean }
     /**
      *
      */
-    constructor(props: {titles: string[]}) {
+    constructor(props: {titles: string[], to: string, className: string, activeClassName: string}) {
         super(props)
         this.state = {
             idx: 0,
@@ -19,27 +19,47 @@ export default class AnimatedComponent extends React.Component<{ titles: string[
 
     componentDidMount() {
         this.timerCallback.isValid = true
-        setTimeout(this.timerCallback,1000)
+        setInterval(this.timerCallback,1000)
     }
 
     componentWillUnmount() {
         this.timerCallback.isValid = false
     }
 
-    private onAnimationEnd() {
+    private afterAnimation() {
         this.setState({
             animating: false,
             idx: (this.state.idx + 1) % this.props.titles.length
         })
+        console.log(this.state.animating)
         setTimeout(this.timerCallback, 1000)
     }
 
     private OnTimer() {
-        this.setState({animating:true})
+        this.setState({ animating: true })
     }
 
     render() {
-        return <GatsbyLink to="/"></GatsbyLink>
+            return (
+                <div className={`animated-content`}>
+                    <GatsbyLink
+                            to={this.props.to}
+                            id="first"
+                            className={`previous ${this.props.className } ${this.state.animating?"animating":""}`}
+                            onAnimationEnd={()=>this.afterAnimation()}
+                        >
+                        {this.props.titles[this.state.idx].split(" ").join("\n")}
+                    </GatsbyLink>
+                    <GatsbyLink
+                            to={this.props.to}
+                            id="second"
+                            className={`next ${this.props.className} ${this.state.animating?"animating":""}`}
+                        >
+                        {this.props.titles[(this.state.idx + 1) % this.props.titles.length].split(" ").join("\n")}    
+                    </GatsbyLink>
+                </div>
+            )
+        
     }
     
     

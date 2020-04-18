@@ -1,9 +1,10 @@
 import React from 'react'
+import SubLayout from '../components/subLayout'
 
-export default function video() {
+export default function Video() {
     return (
-        <div>
-            Hello from Video production
-        </div>
+        <SubLayout>
+            <div>Video production</div>
+        </SubLayout>
     )
 }
