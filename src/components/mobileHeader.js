@@ -1,7 +1,7 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import MobileMenu from '../components/mobileMenu'
 
-const MobileHeader = () => {
+const MobileHeader = ({color}) => {
 
     let opener = useRef(null)
     let closer = useRef(null)
@@ -15,6 +15,28 @@ const MobileHeader = () => {
 
     //disabled state
     const [disabled, setDisabled] = useState(false)
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 1215 && (state.clicked === false || state.initial === false)) {
+                opener.style.display = "block"
+            }
+            else if (window.innerWidth > 1215 && state.clicked === true) {
+                closer.style.display = "none"
+                setState({
+                    clicked: !state.clicked,
+                    menuName: "Menu",
+                })
+            }
+            else {
+                opener.style.display = "none"
+            }
+        }
+        window.addEventListener("resize", handleResize)
+        return _ => {
+            window.removeEventListener("resize", handleResize)
+        }
+    })
 
     const handleMenu = () => {
         disableMenu()
@@ -79,7 +101,7 @@ const MobileHeader = () => {
                 <i className="close-trigger-bar left"></i>
                 <i className="close-trigger-bar right"></i>
             </span>
-            <MobileMenu state={state} />
+            <MobileMenu state={state} color={color} />
         </>
     )
 }

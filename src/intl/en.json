@@ -1,0 +1,26 @@
+{
+    "title": "Recon x Loci video production",
+    "description": "Videoproduction based in Hungary, Budapest",
+    "author": "@kurczloci",
+    "hello": "Hi people",
+    "welcome": "Welcome!",
+    "title_page2": "Page two",
+    "hello_page2": "Hi from the second page",
+    "go_page2": "Go to page 2",
+    "build": "Now go build something great.",
+    "welcome_page2": "Welcome to page 2",
+    "go_back": "Go back to the homepage",
+    "notfound": {
+        "header": "404 NOT FOUND",
+        "description": "Hm, there's nothing in here"
+    },
+    "ig": "Instagram.",
+    "yt": "YouTube.",
+    "media": "Media",
+    "about": "About",
+    "contact": "Contact",
+    "videoprod": "Video production",
+    "video-wedding":"Wedding/ Event",
+    "video-post":"Post Production",
+    "video-brand":"Brand/ Trend"
+}

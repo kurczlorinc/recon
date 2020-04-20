@@ -2,7 +2,7 @@ import * as React from "react"
 import * as ReactDOM from "react-dom"
 import {Link as GatsbyLink} from 'gatsby'
 
-export default class AnimatedComponent extends React.Component<{ titles: string[], to: string, className: string, activeClassName: string  },
+export default class AnimatedComponent extends React.Component<{titles: string[], to: string, className: string, activeClassName: string  },
     { idx: number, animating: boolean }>{
     private timerCallback: (() => void) & { isValid?: boolean }
     /**
@@ -31,7 +31,6 @@ export default class AnimatedComponent extends React.Component<{ titles: string[
             animating: false,
             idx: (this.state.idx + 1) % this.props.titles.length
         })
-        console.log(this.state.animating)
         setTimeout(this.timerCallback, 1000)
     }
 

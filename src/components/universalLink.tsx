@@ -3,8 +3,8 @@ import { Link as GatsbyLink } from "gatsby"
 import Animated from "./animatedComponent"
 
 
-export default class UniversalLink extends React.Component<{ to: string, activeClassName: string, partiallyActive: string, className: string, titles: string[], main: string }>{
-    constructor(props: { to: string, activeClassName: string, partiallyActive: string, className: string, titles: string[], main: string }) {
+export default class UniversalLink extends React.Component<{ color: string, to: string, activeClassName: string, partiallyActive: string, className: string, titles: string[], main: string }>{
+    constructor(props: { color: string, to: string, activeClassName: string, partiallyActive: string, className: string, titles: string[], main: string }) {
         super(props)
     }
 
@@ -35,7 +35,8 @@ export default class UniversalLink extends React.Component<{ to: string, activeC
                                         <GatsbyLink
                                             to={this.props.to}
                                             className={this.props.className + " outline"}
-                                            activeClassName={this.props.activeClassName}>
+                                            activeClassName={this.props.activeClassName}
+                                            style={{WebkitTextFillColor: this.props.color }}>
                                             {item}
                                         </GatsbyLink>
                                     </li> : ""

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import Home from './menu'
 import gsap from 'gsap'
 
-const MobileMenu = ({state}) => {
+const MobileMenu = ({state, color}) => {
 
     let menu = useRef(null)
     let revealMenu = useRef(null)
@@ -68,9 +68,9 @@ const MobileMenu = ({state}) => {
     return (
         <div ref={el => (menu = el)} className="hamburger-menu">
             <div ref={el => (revealMenuBackground = el)} className="menu-secondary-background-color"></div>
-            <div ref={el => (revealMenu = el)} className="menu-layer">
+            <div ref={el => (revealMenu = el)} className="menu-layer" style={{ backgroundColor: color}}>
                 <div ref={el => (menuInner = el)} className="hamburger-container">
-                    <Home main="hamburger" />
+                    <Home main="hamburger" color={color} />
                 </div>
             </div>
         </div>

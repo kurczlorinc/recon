@@ -1,0 +1,26 @@
+{
+    "title": "Recon x Loci videó produkció",
+    "description": "Videó produkció Budapesten",
+    "author": "@kurczloci",
+    "hello": "Hi people HU",
+    "welcome": "Welcome! HU",
+    "title_page2": "Page two HU",
+    "hello_page2": "Hi from the second page HU",
+    "go_page2": "Go to page 2 HU",
+    "build": "Now go build something great.HU",
+    "welcome_page2": "Welcome to page 2HU",
+    "go_back": "Go back to the homepageHU",
+    "notfound": {
+        "header": "404 AZ OLDAL NEM TALÁLHATÓ",
+        "description": "Hm, itt nincs semmi"
+    },
+    "ig": "Instagram.",
+    "yt": "YouTube.",
+    "media": "Média",
+    "about": "Rólam",
+    "contact": "Kontakt",
+    "videoprod": "Videós munkák",
+    "video-wedding":"Esküvő/ Esemény",
+    "video-post":"Vágás/ Utómunka",
+    "video-brand":"Imázs/ Trend"
+}

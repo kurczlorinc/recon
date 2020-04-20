@@ -1,70 +1,73 @@
-import React, { Component } from 'react'
+import React, {useState, Component } from 'react'
 import UniversalLink from './universalLink'
 import { Link } from 'gatsby'
 import Logo from './image'
+import { injectIntl, FormattedMessage, useIntl, IntlContextConsumer, changeLocale } from "gatsby-plugin-intl"
+import {graphql} from 'gatsby'
 
+const languageName = {
+    en: "EN",
+    hu: "HU",
+}
 
-export default class Menu extends Component {
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            english: false,
+const Menu = ({main, color}) => {
+    const intl = useIntl()
+    let [state, setState] = useState({
+        english: false,
             language: 'EN',
             css: "non-en",
             links: [
                 {
                     id: 1,
-                    path: '/video',
+                    path: '/video_regi',
                     text: 'Video production',
                     animation: true
                 }, {
                     id: 2,
                     path:'/about',
-                    text: 'About',
+                    text: intl.formatMessage({ id: "about" }),
                     animation: false
                 }, {
                     id: 3,
                     path:'/contact',
-                    text: 'Contact',
+                    text: intl.formatMessage({ id: "contact" }),
                     animation: false
                 }, {
                     id: 4,
                     path:'/media',
-                    text: 'Media',
+                    text: intl.formatMessage({ id: "media" }),
                     animation: false
                 }, {
                     id: 5,
                     path:'https://www.instagram.com/kurczloci/',
-                    text: 'Instagram.',
+                    text: intl.formatMessage({ id: "ig" }),
                     animation: false
                 }
                 , {
                     id: 6,
                     path:'https://www.youtube.com/channel/UC4LEEJh1ejlxQdnc77H8fRA',
-                    text: 'YouTube.',
+                    text: intl.formatMessage({ id: "yt" }),
                     animation: false
                 }
             ],
             titles: ["Video production", "Wedding/ Event", "Post Production", "Brand/ Trend"]
-        }
-    }
+    })
 
-    enTogglerHandler = () => {
-        this.state.english ?
-            this.setState({
+    const enTogglerHandler = () => {
+        state.english ?
+            setState({
                 english: false,
                 language: "EN",
                 css: "non-en"
             }) :
-            this.setState({
+            setState({
                 english: true,
                 language: "HU",
                 css: "en"
             })
-    }  
+    }
     
-    renderSwitch(param) {
+    const renderSwitch1 = (param) => {
         switch (param) {
             case 'main':
                 return ' main';
@@ -75,9 +78,19 @@ export default class Menu extends Component {
         }
     }
 
-    render() {
+    const renderSwitch2 = (param) => {
+        switch (param) {
+            case 'main':
+                return ``
+            case 'hamburger':
+                return `${color}`
+            default:
+                return `${color}`
+        }
+    }
+
         return (
-            <div className={`wrapper ${this.renderSwitch(this.props.main)}`}>
+            <div className={`wrapper ${renderSwitch1(main)}`} style={{backgroundColor: renderSwitch2(main)}}>
                 <div className="data-container">
                     <div className="logo">               
                         <Logo />
@@ -86,14 +99,20 @@ export default class Menu extends Component {
                         <nav className="menu-items">
                             <ul className="menu-items-list">
                                 {
-                                    this.state.links.map(link => {
+                                    state.links.map(link => {
                                         return (
                                             <li key={link.id} className="nav-option">
                                                 <UniversalLink to={link.path}
                                                     className={`nav-link ${link.animation ? "animate" : ""}`}
                                                     activeClassName="nav-link-active"
-                                                    titles={["Video production", "Wedding/ Event", "Post Production", "Brand/ Trend"]}
-                                                    main={this.props.main}
+                                                    titles={[
+                                                        intl.formatMessage({ id: "videoprod" }),
+                                                        intl.formatMessage({ id: "video-wedding" }),
+                                                        intl.formatMessage({ id: "video-post" }),
+                                                        intl.formatMessage({ id: "video-brand" })]}
+                                                    main={main}
+                                                    partiallyActive=""
+                                                    color={color}
                                                 >
                                                     {link.text.split(" ").join("\n")}
                                                 </UniversalLink>
@@ -108,15 +127,35 @@ export default class Menu extends Component {
                         <nav className="language-items">
                             <ul className="language-items-list">
                                 <li className="language-option">
-                                    <button className={this.state.css} type="button" onClick={this.enTogglerHandler}>
-                                        <Link to="/">{this.state.language}</Link>
+                                    <button type="button">
+                                        <IntlContextConsumer>
+                                            {({ languages, language: currentLocale }) =>
+                                                languages.map(language => {
+                                                    if(currentLocale === language) 
+                                                    return(
+                                                        <></>
+                                                    )
+                                                    else return(
+                                                        <a
+                                                            key={language}
+                                                            onClick={() => changeLocale(language)}
+                                                        >
+                                                            {languageName[language]}
+                                                        </a>
+                                                    )
+                                                })
+                                            }
+                                        </IntlContextConsumer>
                                     </button>
                                 </li>
                             </ul>
                         </nav>
+                        
                     </div>
                 </div>
+                <div></div>
             </div>
         )
-    }
 }
+
+export default Menu
