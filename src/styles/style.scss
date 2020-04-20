@@ -11,6 +11,7 @@ $yellow: #FEBD11;
 $red: #ED2327;
 $white: #fff;
 $black: #000;
+$transparent: 	rgba(255,255,255,0);
 
 $noto: noto-sans, sans-serif;
 $roboto: 'Roboto', sans-serif;
@@ -305,7 +306,7 @@ body{
                         }
                         /* media */
                         &:nth-child(4){
-                            background-color: $green;
+                            background-color: $yellow;
                             font-size: 50px;
                             line-height: 50px;
                             bottom: 267px;
@@ -443,7 +444,7 @@ body{
                 z-index: 9;
                 right: 0;
                 bottom: 0;
-                background: $yellow;
+                background: $green;
                 padding: 0px 20px 0px 20px;
                 border-top: 8px solid $white;
                 border-left: 8px solid $white;
@@ -556,7 +557,6 @@ body{
         right: 0;
         top: 0;
         z-index:-99;
-        text-transform: uppercase;
         color: $white;
         background: #6b2c8c;
         display: flex;
@@ -574,10 +574,39 @@ body{
             width: 100%;
         }
         .page-content{
-            font-family: $noto;
-            font-size: 50px;
-            font-weight: 700;
-            text-shadow: 4px 4px $purple;
+            margin: 40px;
+            text-align: center;
+            div{
+                margin: 20px 0;
+            }
+            .title{
+                font-family: $noto;
+                font-size: 60px;
+                font-weight: 700;
+                text-shadow: 4px 4px $purple;
+                margin: 20px 0;
+                text-transform: uppercase;
+                -webkit-text-stroke: 1.5px $white;
+                -webkit-text-fill-color: $transparent;
+            }
+            .subtitle{
+                font-family: $noto;
+                font-size: 50px;
+                font-weight: 700;
+                text-shadow: 4px 4px $purple;
+                margin: 40px 0;
+                text-transform: uppercase;
+                -webkit-text-stroke: 1.5px $white;
+                -webkit-text-fill-color: $transparent;
+            }
+            .content-text{
+                line-height:1.5;
+                margin: 20px 0;
+                font-family: $noto;
+                font-size: 20px;
+                text-transform: unset;
+            }
+            
         }
     }
     .menu-trigger{
@@ -644,6 +673,7 @@ body{
                                     .nav-option{
                                         text-align: center;
                                         a{
+                                            cursor: pointer;
                                             font-family: $noto; 
                                             font-weight: 900;
                                             font-size: 30px;
@@ -658,6 +688,9 @@ body{
                                             &:hover{
                                                 color: $red;
                                             }  
+                                        }
+                                        .nav-link-active{
+                                            color: $red;
                                         }
                                         .inner-content{
                                             .sub-menu{
@@ -824,6 +857,9 @@ body{
                                                     color: $red;
                                                 }  
                                             }
+                                            .nav-link-active{
+                                                color: $red;
+                                            }
                                             .inner-content{
                                                 .sub-menu{
                                                     list-style-type: none;
@@ -935,7 +971,6 @@ $white-20: 		rgba(255,255,255,0.2);
 $white-10: 		rgba(255,255,255,0.1);
 
 //Invisible
-$transparent: 	rgba(255,255,255,0);
 
 //COLORS
 $light-grey: #e0dfe1;

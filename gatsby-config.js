@@ -46,5 +46,6 @@ module.exports = {
         redirect: true,
       },
     },
+    `gatsby-plugin-meta-redirect`,
   ],
 }

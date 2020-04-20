@@ -1,9 +1,8 @@
-import React, {useState, Component } from 'react'
+import React, {useState} from 'react'
 import UniversalLink from './universalLink'
-import { Link } from 'gatsby'
 import Logo from './image'
-import { injectIntl, FormattedMessage, useIntl, IntlContextConsumer, changeLocale } from "gatsby-plugin-intl"
-import {graphql} from 'gatsby'
+import { useIntl, IntlContextConsumer, changeLocale } from "gatsby-plugin-intl"
+
 
 const languageName = {
     en: "EN",
@@ -12,60 +11,58 @@ const languageName = {
 
 const Menu = ({main, color}) => {
     const intl = useIntl()
-    let [state, setState] = useState({
+    let [state] = useState({
         english: false,
             language: 'EN',
             css: "non-en",
             links: [
                 {
                     id: 1,
-                    path: '/video_regi',
+                    slugs: ['videos','video'],
+                    path_en: '/en/video',
+                    path_hu:'hu/videos',
                     text: 'Video production',
                     animation: true
                 }, {
                     id: 2,
-                    path:'/about',
+                    slugs: ['about','rolam'],
+                    path_en: '/en/about',
+                    path_hu:'/hu/rolam',
                     text: intl.formatMessage({ id: "about" }),
                     animation: false
                 }, {
                     id: 3,
-                    path:'/contact',
+                    slugs: ['contact','kontakt'],
+                    path_en: '/en/contact',
+                    path_hu:'/hu/kontakt',
                     text: intl.formatMessage({ id: "contact" }),
                     animation: false
                 }, {
                     id: 4,
-                    path:'/media',
+                    slugs: ['media','multimedia'],
+                    path_en: '/en/media',
+                    path_hu:'/hu/multimedia',
                     text: intl.formatMessage({ id: "media" }),
                     animation: false
                 }, {
                     id: 5,
-                    path:'https://www.instagram.com/kurczloci/',
+                    slugs: [],
+                    path_en: 'https://www.instagram.com/kurczloci/',
+                    path_hu:'https://www.instagram.com/kurczloci/',
                     text: intl.formatMessage({ id: "ig" }),
                     animation: false
                 }
                 , {
                     id: 6,
-                    path:'https://www.youtube.com/channel/UC4LEEJh1ejlxQdnc77H8fRA',
+                    slugs: [],
+                    path_en: 'https://www.youtube.com/channel/UC4LEEJh1ejlxQdnc77H8fRA',
+                    path_hu:'https://www.youtube.com/channel/UC4LEEJh1ejlxQdnc77H8fRA',
                     text: intl.formatMessage({ id: "yt" }),
                     animation: false
                 }
             ],
             titles: ["Video production", "Wedding/ Event", "Post Production", "Brand/ Trend"]
     })
-
-    const enTogglerHandler = () => {
-        state.english ?
-            setState({
-                english: false,
-                language: "EN",
-                css: "non-en"
-            }) :
-            setState({
-                english: true,
-                language: "HU",
-                css: "en"
-            })
-    }
     
     const renderSwitch1 = (param) => {
         switch (param) {
@@ -89,6 +86,14 @@ const Menu = ({main, color}) => {
         }
     }
 
+    const handlePath = (id) => {
+        if (intl.locale === 'hu') {
+            return state.links.find(x => x.id === id).path_hu
+        } else {
+            return state.links.find(x => x.id === id).path_en
+        }
+    }
+
         return (
             <div className={`wrapper ${renderSwitch1(main)}`} style={{backgroundColor: renderSwitch2(main)}}>
                 <div className="data-container">
@@ -102,7 +107,7 @@ const Menu = ({main, color}) => {
                                     state.links.map(link => {
                                         return (
                                             <li key={link.id} className="nav-option">
-                                                <UniversalLink to={link.path}
+                                                <UniversalLink to={handlePath(link.id)}
                                                     className={`nav-link ${link.animation ? "animate" : ""}`}
                                                     activeClassName="nav-link-active"
                                                     titles={[
@@ -135,14 +140,28 @@ const Menu = ({main, color}) => {
                                                     return(
                                                         <></>
                                                     )
-                                                    else return(
-                                                        <a
-                                                            key={language}
-                                                            onClick={() => changeLocale(language)}
-                                                        >
-                                                            {languageName[language]}
-                                                        </a>
-                                                    )
+                                                    else {
+                                                        if (main==="main") {
+                                                            return(
+                                                                <a
+                                                                    href="#!"
+                                                                    key={language}
+                                                                    onClick={() => changeLocale(language)}
+                                                                >
+                                                                    {languageName[language]}
+                                                                </a>
+                                                            )
+                                                        } else {
+                                                            return(
+                                                                <a
+                                                                    href="/en/about"
+                                                                    key={language}
+                                                                    onClick={() => changeLocale(language)}>
+                                                                        {languageName[language]}
+                                                                </a>
+                                                            )
+                                                        }
+                                                    }
                                                 })
                                             }
                                         </IntlContextConsumer>
@@ -153,7 +172,6 @@ const Menu = ({main, color}) => {
                         
                     </div>
                 </div>
-                <div></div>
             </div>
         )
 }
