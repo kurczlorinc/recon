@@ -43,12 +43,12 @@ exports.onCreatePage = async ({
     page,
     actions: { createPage, deletePage, createRedirect },
 }) => {
-    createRedirect({ fromPath: '/en/home/', toPath: '/en/about/', isPermanent: true })
+    
     if (!slugs.includes(page.path)) {
         if (page.path !== `/${page.context.locale}/${page.context.slug}`) {
             const from = page.path
             const to = `/${page.context.locale}/${page.context.slug}`
-            
+            createRedirect({ fromPath: '/en/home/', toPath: '/en/about/', isPermanent: true, force: true })
             deletePage(page)
         }
     }
