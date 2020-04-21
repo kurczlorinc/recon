@@ -20,12 +20,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-typescript`,
-    {
-      resolve: "gatsby-plugin-ts-loader",
-      options: {
-        tslint: false, // false or exclude to disable tslint
-      },
-    },
+    
     {
       resolve: `gatsby-source-contentful`,
       options: {
