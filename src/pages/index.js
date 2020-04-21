@@ -7,9 +7,7 @@ import Menu from "../components/menu"
 
 const IndexPage = () => {
     return (
-
             <Menu main="main" />
-
         )
         
 }
