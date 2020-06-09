@@ -47,7 +47,7 @@ const Menu = ({main, color}) => {
                 animation: false
             }, {
                 id: 5,
-                slugs: [],
+                slugs: ['instagram','instagram'],
                 path_en: 'https://www.instagram.com/kurczloci/',
                 path_hu:'https://www.instagram.com/kurczloci/',
                 text: intl.formatMessage({ id: "ig" }),
@@ -55,7 +55,7 @@ const Menu = ({main, color}) => {
             }
             , {
                 id: 6,
-                slugs: [],
+                slugs: ['youtube','youtube'],
                 path_en: 'https://www.youtube.com/channel/UC4LEEJh1ejlxQdnc77H8fRA',
                 path_hu:'https://www.youtube.com/channel/UC4LEEJh1ejlxQdnc77H8fRA',
                 text: intl.formatMessage({ id: "yt" }),
