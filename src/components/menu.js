@@ -115,17 +115,17 @@ const Menu = ({main, color}) => {
 
     const handlePath = (id) => {
         if (intl.locale === 'hu') {
-            return state.links.find(x => x.id === id).path_hu
+            return "/en/wedding-event"
         } else {
-            return state.links.find(x => x.id === id).path_en
+            return "/en/wedding-event"
         }
     }
 
     const handlesubMenu = (id) => {
         if (intl.locale === "hu") {
-            return state.subLinks.find(x => x.id === id).path_hu
+            return "/en/wedding-event"
         } else {
-            return state.subLinks.find(x => x.id === id).path_en
+            return "/en/wedding-event"
         }
     }
 
