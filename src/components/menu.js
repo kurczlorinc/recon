@@ -142,9 +142,9 @@ const Menu = ({main, color}) => {
         } else {
             const direct = state.links.find(x => x.slugs[0] === slug)
             if (typeof direct === "undefined") {
-                return state.subLinks.find(x => x.slugs[0] === slug).path_hu
-            } else {
                 return "/en/wedding-event"
+            } else {
+                return direct.path_hu
             }
         }
         
