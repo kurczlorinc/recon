@@ -115,17 +115,17 @@ const Menu = ({main, color}) => {
 
     const handlePath = (id) => {
         if (intl.locale === 'hu') {
-            return "/en/wedding-event"
+            return state.links.find(x => x.id === id).path_hu
         } else {
-            return "/en/wedding-event"
+            return state.links.find(x => x.id === id).path_en
         }
     }
 
     const handlesubMenu = (id) => {
         if (intl.locale === "hu") {
-            return "/en/wedding-event"
+            return state.subLinks.find(x => x.id === id).path_hu
         } else {
-            return "/en/wedding-event"
+            return state.subLinks.find(x => x.id === id).path_en
         }
     }
 
@@ -135,14 +135,14 @@ const Menu = ({main, color}) => {
         if (intl.locale === "hu") {
             const direct = state.links.find(x => x.slugs[1] === slug)
             if (typeof direct === "undefined") {
-                return "/en/wedding-event"
+                return state.subLinks.find(x => x.slugs[1] === slug).path_en
             } else {
-                return "/en/wedding-event"
+                return direct.path_en
             }
         } else {
             const direct = state.links.find(x => x.slugs[0] === slug)
             if (typeof direct === "undefined") {
-                return "/en/wedding-event"
+                return state.subLinks.find(x => x.slugs[0] === slug).path_hu
             } else {
                 return "/en/wedding-event"
             }
