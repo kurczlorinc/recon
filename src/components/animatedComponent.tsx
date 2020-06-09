@@ -1,6 +1,6 @@
 import * as React from "react"
 import * as ReactDOM from "react-dom"
-import {Link as GatsbyLink} from 'gatsby'
+import { Link as GatsbyLink } from 'gatsby'
 
 export default class AnimatedComponent extends React.Component<{titles: string[], to: string, className: string, activeClassName: string  },
     { idx: number, animating: boolean }>{

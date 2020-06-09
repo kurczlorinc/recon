@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import UniversalLink from './universalLink'
 import Logo from './image'
 import { useIntl, IntlContextConsumer, changeLocale } from "gatsby-plugin-intl"
+import SubMenuElements from './subMenuElements'
 
 
 const languageName = {
@@ -13,55 +14,81 @@ const Menu = ({main, color}) => {
     const intl = useIntl()
     let [state] = useState({
         english: false,
-            language: 'EN',
-            css: "non-en",
-            links: [
-                {
-                    id: 1,
-                    slugs: ['videos','video'],
-                    path_en: '/en/video',
-                    path_hu:'hu/videos',
-                    text: 'Video production',
-                    animation: true
-                }, {
-                    id: 2,
-                    slugs: ['about','rolam'],
-                    path_en: '/en/about',
-                    path_hu:'/hu/rolam',
-                    text: intl.formatMessage({ id: "about" }),
-                    animation: false
-                }, {
-                    id: 3,
-                    slugs: ['contact','kontakt'],
-                    path_en: '/en/contact',
-                    path_hu:'/hu/kontakt',
-                    text: intl.formatMessage({ id: "contact" }),
-                    animation: false
-                }, {
-                    id: 4,
-                    slugs: ['media','multimedia'],
-                    path_en: '/en/media',
-                    path_hu:'/hu/multimedia',
-                    text: intl.formatMessage({ id: "media" }),
-                    animation: false
-                }, {
-                    id: 5,
-                    slugs: [],
-                    path_en: 'https://www.instagram.com/kurczloci/',
-                    path_hu:'https://www.instagram.com/kurczloci/',
-                    text: intl.formatMessage({ id: "ig" }),
-                    animation: false
-                }
-                , {
-                    id: 6,
-                    slugs: [],
-                    path_en: 'https://www.youtube.com/channel/UC4LEEJh1ejlxQdnc77H8fRA',
-                    path_hu:'https://www.youtube.com/channel/UC4LEEJh1ejlxQdnc77H8fRA',
-                    text: intl.formatMessage({ id: "yt" }),
-                    animation: false
-                }
-            ],
-            titles: ["Video production", "Wedding/ Event", "Post Production", "Brand/ Trend"]
+        language: 'EN',
+        css: "non-en",
+        links: [
+            {
+                id: 1,
+                slugs: ['video','videos-munkak'],
+                path_en: '/en/video',
+                path_hu:'/hu/videos-munkak',
+                text: 'Video production',
+                animation: true
+            }, {
+                id: 2,
+                slugs: ['about','rolam'],
+                path_en: '/en/about',
+                path_hu:'/hu/rolam',
+                text: intl.formatMessage({ id: "about" }),
+                animation: false
+            }, {
+                id: 3,
+                slugs: ['contact','kapcsolat'],
+                path_en: '/en/contact',
+                path_hu:'/hu/kapcsolat',
+                text: intl.formatMessage({ id: "contact" }),
+                animation: false
+            }, {
+                id: 4,
+                slugs: ['media','multimedia'],
+                path_en: '/en/media',
+                path_hu:'/hu/multimedia',
+                text: intl.formatMessage({ id: "media" }),
+                animation: false
+            }, {
+                id: 5,
+                slugs: [],
+                path_en: 'https://www.instagram.com/kurczloci/',
+                path_hu:'https://www.instagram.com/kurczloci/',
+                text: intl.formatMessage({ id: "ig" }),
+                animation: false
+            }
+            , {
+                id: 6,
+                slugs: [],
+                path_en: 'https://www.youtube.com/channel/UC4LEEJh1ejlxQdnc77H8fRA',
+                path_hu:'https://www.youtube.com/channel/UC4LEEJh1ejlxQdnc77H8fRA',
+                text: intl.formatMessage({ id: "yt" }),
+                animation: false
+            }
+        ],
+        subLinks: [
+            {
+                id: 0,
+                slugs: ['video','videos-munkak'],
+                path_en: '/en/video',
+                path_hu: '/hu/videos-munkak'
+            },
+            {
+                id: 1,
+                slugs: ['wedding-event','eskuvo-esemeny'],
+                path_en: '/en/wedding-event',
+                path_hu: '/hu/eskuvo-esemeny'
+            },
+            {
+                id: 2,
+                slugs: ['post-production','vagas-utomunka'],
+                path_en: '/en/post-production',
+                path_hu: '/hu/vagas-utomunka'
+            },
+            {
+                id: 3,
+                slugs: ['brand-trend','imazs-trend'],
+                path_en: '/en/brand-trend',
+                path_hu: '/hu/imazs-trend'
+            }
+        ]
+            
     })
     
     const renderSwitch1 = (param) => {
@@ -94,8 +121,38 @@ const Menu = ({main, color}) => {
         }
     }
 
-        return (
-            <div className={`wrapper ${renderSwitch1(main)}`} style={{backgroundColor: renderSwitch2(main)}}>
+    const handlesubMenu = (id) => {
+        if (intl.locale === "hu") {
+            return state.subLinks.find(x => x.id === id).path_hu
+        } else {
+            return state.subLinks.find(x => x.id === id).path_en
+        }
+    }
+
+    const handleSubLanguage = () => {
+        const url = typeof window !== "undefined" ? window.location.href : ""
+        const slug = url.split("/").pop()
+        if (intl.locale === "hu") {
+            const direct = state.links.find(x => x.slugs[1] === slug)
+            if (typeof direct === "undefined") {
+                return state.subLinks.find(x => x.slugs[1] === slug).path_en
+            } else {
+                return direct.path_en
+            }
+        } else {
+            const direct = state.links.find(x => x.slugs[0] === slug)
+            if (typeof direct === "undefined") {
+                return state.subLinks.find(x => x.slugs[0] === slug).path_hu
+            } else {
+                return direct.path_hu
+            }
+        }
+        
+    }
+
+    return (
+            <>
+            <div className={`wrapper ${renderSwitch1(main)}`} style={{ backgroundColor: renderSwitch2(main) }}>
                 <div className="data-container">
                     <div className="logo">               
                         <Logo />
@@ -106,15 +163,42 @@ const Menu = ({main, color}) => {
                                 {
                                     state.links.map(link => {
                                         return (
-                                            <li key={link.id} className="nav-option">
-                                                <UniversalLink to={handlePath(link.id)}
-                                                    className={`nav-link ${link.animation ? "animate" : ""}`}
+                                            <li
+                                                key={link.id}
+                                                className="nav-option"
+                                            >
+                                                <UniversalLink
+                                                    to={handlePath(link.id)}
+                                                    className={`nav-link ${
+                                                        link.animation ? "animate" : ""
+                                                    }`}
                                                     activeClassName="nav-link-active"
                                                     titles={[
-                                                        intl.formatMessage({ id: "videoprod" }),
-                                                        intl.formatMessage({ id: "video-wedding" }),
-                                                        intl.formatMessage({ id: "video-post" }),
-                                                        intl.formatMessage({ id: "video-brand" })]}
+                                                        new SubMenuElements(
+                                                            intl.formatMessage({
+                                                            id: "videoprod",
+                                                        }),
+                                                        handlesubMenu(0)
+                                                        ),
+                                                        new SubMenuElements(
+                                                            intl.formatMessage({
+                                                            id: "video-wedding",
+                                                        }),
+                                                        handlesubMenu(1)
+                                                        ),
+                                                        new SubMenuElements(
+                                                            intl.formatMessage({
+                                                            id: "video-post",
+                                                        }),
+                                                        handlesubMenu(2)
+                                                        ),
+                                                        new SubMenuElements(
+                                                            intl.formatMessage({
+                                                            id: "video-brand",
+                                                        }),
+                                                        handlesubMenu(3)
+                                                        ),
+                                                    ]}
                                                     main={main}
                                                     partiallyActive=""
                                                     color={color}
@@ -154,9 +238,9 @@ const Menu = ({main, color}) => {
                                                         } else {
                                                             return(
                                                                 <a
-                                                                    href="/en/about"
+                                                                    href={handleSubLanguage()}
                                                                     key={language}
-                                                                    onClick={() => changeLocale(language)}>
+                                                                    onClick={() => handleSubLanguage()}>
                                                                         {languageName[language]}
                                                                 </a>
                                                             )
@@ -173,6 +257,7 @@ const Menu = ({main, color}) => {
                     </div>
                 </div>
             </div>
+            </>
         )
 }
 

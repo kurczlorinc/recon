@@ -11,16 +11,18 @@
     "welcome_page2": "Welcome to page 2HU",
     "go_back": "Go back to the homepageHU",
     "notfound": {
-        "header": "404 AZ OLDAL NEM TALÁLHATÓ",
-        "description": "Hm, itt nincs semmi"
+        "header": "404",
+        "description": "Hmm, itt nincs semmi"
     },
+    "more": "További bejegyzések",
     "ig": "Instagram.",
     "yt": "YouTube.",
     "media": "Média",
     "about": "Rólam",
-    "contact": "Kontakt",
+    "contact": "Kapcsolat",
     "videoprod": "Videós munkák",
-    "video-wedding":"Esküvő/ Esemény",
-    "video-post":"Vágás/ Utómunka",
-    "video-brand":"Imázs/ Trend"
+    "video-wedding": "Esküvő/ Esemény",
+    "video-post": "Vágás/ Utómunka",
+    "video-brand": "Imázs/ Trend"
+    
 }

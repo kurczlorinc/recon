@@ -10,7 +10,7 @@ export default () => (
                 file(relativePath: { eq: "recon-logo.png" }) {
                 childImageSharp {
                     fluid(maxWidth: 100) {
-                    ...GatsbyImageSharpFluid_tracedSVG
+                    ...GatsbyImageSharpFluid
                     }
                 }
                 }

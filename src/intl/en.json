@@ -11,9 +11,10 @@
     "welcome_page2": "Welcome to page 2",
     "go_back": "Go back to the homepage",
     "notfound": {
-        "header": "404 NOT FOUND",
-        "description": "Hm, there's nothing in here"
+        "header": "404",
+        "description": "Hmm, there's nothing in here"
     },
+    "more": "See more",
     "ig": "Instagram.",
     "yt": "YouTube.",
     "media": "Media",

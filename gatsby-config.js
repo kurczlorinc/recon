@@ -3,9 +3,11 @@ require("dotenv").config({
 })
 module.exports = {
   siteMetadata: {
-    title: `RECON X LOCI`,
-    description: `VIDEO PRODUCTION - VIDEÓ KÉSZÍTÉS`,
+    title: `Recon Films`,
+    description: `esküvő, rendezvény, koncert, brand videó`,
     author: `@kurczloci`,
+    siteUrl: `https://www.reconfilms.hu`,
+    image: `../images/recon_og.png`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -20,7 +22,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-typescript`,
-    
+
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -39,6 +41,24 @@ module.exports = {
         defaultLanguage: `hu`,
         // option to redirect to `/ko` when connecting `/`
         redirect: true,
+      },
+    },
+    {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: `kurczloci`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: process.env.GOOGLE_TAGMANAGER_ID,
+        includeInDevelopment: false,
+        defaultDataLayer: { platform: "gatsby" },
+        gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_AUTH_STRING",
+        gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_PREVIEW_NAME",
+        dataLayerName: "YOUR_DATA_LAYER_NAME",
+        routeChangeEventName: "gatsby-route-change",
       },
     },
     `gatsby-plugin-netlify`,

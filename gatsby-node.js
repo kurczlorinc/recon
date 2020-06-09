@@ -30,7 +30,8 @@ exports.createPages = async({ graphql, actions: {createPage} }) => {
                 context: {
                     slug: page.node.slug,
                     locale: locale,
-                    id: page.node.contentful_id
+                    id: page.node.contentful_id,
+                    contact: page.node.contentful_id === "tCsUFxwyxG1dlmml2Sp4A"
                 }
             })
         })
@@ -48,11 +49,21 @@ exports.onCreatePage = async ({
         if (page.path !== `/${page.context.locale}/${page.context.slug}`) {
             const from = page.path
             const to = `/${page.context.locale}/${page.context.slug}`
-            createRedirect({ fromPath: '/en/home/', toPath: '/en/about/', isPermanent: true, force: true })
+            createRedirect({ fromPath: from, toPath: to, isPermanent: true, force: true })
             deletePage(page)
         }
     }
-    if (page.path === slugs[0] || page.path === slugs[1] || page.path === slugs[2]) {
+    if (page.path.match(/^\/[a-z]{2}\/404\/$/)) {
+        const oldPage = { ...page }
+        // Get the language code from the path, and match all paths
+        // starting with this code (apart from other valid paths)
+        const langCode = page.path.split(`/`)[1]
+        page.matchPath = `/${langCode}/*`
+        // Recreate the modified page
+        deletePage(oldPage)
+        createPage(page)
+    }
+    /*if (page.path === slugs[0] || page.path === slugs[1] || page.path === slugs[2]) {
             const page404 = {
                 ...page,
                 path: page.path.substring(0, page.path.length - 1),
@@ -60,7 +71,7 @@ exports.onCreatePage = async ({
             deletePage(page)
             createPage(page404)
             
-    }
+    }*/
 }
 
 

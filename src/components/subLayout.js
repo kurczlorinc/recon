@@ -8,10 +8,13 @@ export default class SubLayout extends React.Component {
             <div className="full-md-content">
                 <div className="inner-container">
                     <div className="menu-container">
+                        <div className="content-background"></div>
                         <div className="content-wrap">
                             <Menu main="sub" color={this.props.color}/>
                             <div className="page-content">
-                                {this.props.children}
+                                <div className="inner-content">
+                                    {this.props.children}
+                                </div>
                             </div>
                         </div>
                         <MobileHeader color={this.props.color} />

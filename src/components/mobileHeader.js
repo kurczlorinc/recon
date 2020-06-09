@@ -1,5 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react'
 import MobileMenu from '../components/mobileMenu'
+import { globalHistory } from "@reach/router"
 
 const MobileHeader = ({color}) => {
 
@@ -22,7 +23,7 @@ const MobileHeader = ({color}) => {
                 opener.style.display = "block"
             }
             else if (window.innerWidth > 1215 && state.clicked === true) {
-                closer.style.display = "none"
+                if (closer !== null) closer.style.display = "none"
                 setState({
                     clicked: !state.clicked,
                     menuName: "Menu",
@@ -33,7 +34,18 @@ const MobileHeader = ({color}) => {
             }
         }
         window.addEventListener("resize", handleResize)
-        return _ => {
+        window.addEventListener("onhashchange", () => {
+            setTimeout(() => {
+                setState({
+                    clicked: !state.clicked,
+                    menuName: "Menu",
+                })
+            }, 1600)})
+        /*globalHistory.listen(() => {
+            
+        })*/
+        return _ => { 
+            
             window.removeEventListener("resize", handleResize)
         }
     })

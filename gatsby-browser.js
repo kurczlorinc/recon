@@ -1,7 +1,27 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+exports.onClientEntry = () => {
+    console.log("onClientEntry")
+}
 
-// You can delete this file if you're not using it
+exports.onInitialClientRender = () => {
+    console.log("onInitialClientRender")
+}
+
+exports.onPostPrefetchPathname = () => {
+    console.log("onPostPrefetchPathname")
+}
+
+exports.onPreRouteUpdate = () => {
+    console.log("onPreRouteUpdate")
+}
+
+exports.onPrefetchPathname = () => {
+    console.log("onPrefetchPathname")
+}
+
+exports.onRouteUpdate = () => {
+    console.log("onRouteUpdate")
+}
+
+exports.onRouteUpdateDelayed = () => {
+    console.log("onRouteUpdateDelayed")
+}
