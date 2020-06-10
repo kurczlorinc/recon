@@ -134,19 +134,19 @@ const Menu = ({main, color}) => {
         const slug = url.split("/").pop()
         if (intl.locale === "hu") {
             const direct = state.links.find(x => x.slugs[1] === slug)
-            if (typeof (direct) === "undefined") {
+            if (typeof(direct) === "undefined") {
                 return state.subLinks.find(x => x.slugs[1] === slug).path_en
             }
             else {
-                return direct.path_en
+                return state.links.find(x => x.slugs[1] === slug).path_en
             }
         } else {
             const direct = state.links.find(x => x.slugs[0] === slug)
-            if (typeof (direct) === "undefined") {
+            if (typeof(direct) === "undefined") {
                 return state.subLinks.find(x => x.slugs[0] === slug).path_hu
             }
             else {
-                return direct.path_hu
+                return state.links.find(x => x.slugs[0] === slug).path_hu
             }
         }
     }
