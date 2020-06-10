@@ -135,18 +135,18 @@ const Menu = ({main, color}) => {
         if (intl.locale === "hu") {
             const direct = state.links.find(x => x.slugs[1] === slug)
             if (typeof(direct) === "undefined") {
-                return state.subLinks.find(x => x.slugs[1] === slug).path_en
+                return null
             }
             else {
-                return null
+                return state.links.find(x => x.slugs[1] === slug).path_en
             }
         } else {
             const direct = state.links.find(x => x.slugs[0] === slug)
             if (typeof(direct) === "undefined") {
-                return state.subLinks.find(x => x.slugs[0] === slug).path_hu
+                return null
             }
             else {
-                return null
+                return state.links.find(x => x.slugs[0] === slug).path_hu
             }
         }
     }
