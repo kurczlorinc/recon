@@ -138,7 +138,7 @@ const Menu = ({main, color}) => {
                 return state.subLinks.find(x => x.slugs[1] === slug).path_en
             }
             else {
-                return state.links.find(x => x.slugs[1] === slug).path_en
+                return null
             }
         } else {
             const direct = state.links.find(x => x.slugs[0] === slug)
@@ -146,7 +146,7 @@ const Menu = ({main, color}) => {
                 return state.subLinks.find(x => x.slugs[0] === slug).path_hu
             }
             else {
-                return state.links.find(x => x.slugs[0] === slug).path_hu
+                return null
             }
         }
     }
