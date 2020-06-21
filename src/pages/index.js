@@ -90,15 +90,9 @@ const IndexPage = () => {
                 
             </Helmet>
             <Menu main="main" />
-            <video
-                id="background-video"
-                loop
-                muted
-                autoPlay
-                playsInline
-            >
-                <source src="http://www.salfold.hu/images/final_recon_main.mp4" type="video/mp4" />
-            </video>
+            <div class="videowrapper">
+                <iframe src="https://player.vimeo.com/video/431172191?muted=1&autoplay=1&loop=1&byline=0&title=0&quality=1080p" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
             
             
             
