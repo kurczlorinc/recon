@@ -87,9 +87,7 @@ const IndexPage = () => {
                     vid=document.getElementById("background-video")
                     vid.disablePictureInPicture = true
                 </script>
-                <script type="text/javascript" src="https://vjs.zencdn.net/7.8.2/video.js" ></script>
-                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.1/Youtube.min.js" ></script>
-                <link href="//vjs.zencdn.net/5.4.6/video-js.min.css" rel="stylesheet"></link>
+                
             </Helmet>
             <Menu main="main" />
             <video
