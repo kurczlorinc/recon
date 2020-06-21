@@ -41,6 +41,28 @@ $mobile-nav:1215px;
 body{
     font-family: $roboto;
     font-weight: 300;
+    margin: 0;
+    .videowrapper{
+        float: none;
+        clear: both;
+        width: 100%;
+        
+        padding-bottom: 56.2%;
+        height: 0;
+        
+        /* Put the video in the background */
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        iframe{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
     #background-video{
         object-fit: cover;
         width: 100vw;

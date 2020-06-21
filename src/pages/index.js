@@ -12,6 +12,8 @@ import favicon16 from "../images/fav_16x16.ico"
 import videoPoster from "../images/recon-start.jpg"
 import speakeroff from "../images/speaker-off.png"
 import speakeron from "../images/speaker-on.png"
+import videojs from "video.js"
+
 
 const IndexPage = () => {
     const { site } = useStaticQuery(
@@ -85,14 +87,23 @@ const IndexPage = () => {
                     vid=document.getElementById("background-video")
                     vid.disablePictureInPicture = true
                 </script>
-                
+                <script type="text/javascript" src="https://vjs.zencdn.net/7.8.2/video.js" ></script>
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.1/Youtube.min.js" ></script>
+                <link href="//vjs.zencdn.net/5.4.6/video-js.min.css" rel="stylesheet"></link>
             </Helmet>
             <Menu main="main" />
-            <video id="background-video" poster={videoPoster} loop muted autoPlay playsinline >
-                <source src={sample} type="video/mp4" />
-                <source src={sample} type="video/ogg" />
-                Your browser does not support the video tag.
+            <video
+                id="background-video"
+                loop
+                muted
+                autoPlay
+                playsInline
+            >
+                <source src="http://www.salfold.hu/images/final_recon_main.mp4" type="video/mp4" />
             </video>
+            
+            
+            
             <div className="speaker">
                 {mute ? <img src={speakeroff} onClick={handleMute} /> : <img src={speakeron} onClick={handleMute} />}
             </div>
