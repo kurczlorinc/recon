@@ -1,6 +1,7 @@
 import React from 'react'
 import Img from "gatsby-image"
 import { Link, graphql, StaticQuery } from "gatsby"
+import logo from "../images/recon-logo.png"
 
 export default () => (
     <StaticQuery
@@ -22,8 +23,16 @@ export default () => (
                 <span>
                     <span></span>
                 </span>
-            </div>
-            <Img fluid={data.file.childImageSharp.fluid} className="logo-image" />
+                </div>
+                <div className="logo-image">
+                    
+                    <picture>
+                        <img src={logo} />
+                    </picture>
+                </div>
+                
+
+            
         </Link>
         )}
     />

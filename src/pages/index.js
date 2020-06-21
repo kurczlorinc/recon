@@ -3,7 +3,6 @@ import {useStaticQuery, graphql} from "gatsby"
 import SEO from "../components/seo"
 import "../styles/reset.scss"
 import "../styles/style.scss"
-import sample from '../videos/final_recon_main.mp4';
 import Menu from "../components/menu"
 import { Helmet } from "react-helmet"
 import favicon96 from "../images/fav_96x96.ico"
@@ -12,7 +11,7 @@ import favicon16 from "../images/fav_16x16.ico"
 import videoPoster from "../images/recon-start.jpg"
 import speakeroff from "../images/speaker-off.png"
 import speakeron from "../images/speaker-on.png"
-import videojs from "video.js"
+import Player from "@vimeo/player"
 
 
 const IndexPage = () => {
@@ -32,8 +31,16 @@ const IndexPage = () => {
     )
     let [mute, setMute] = useState(true)
     const handleMute = () => {
-        var video = document.getElementById("background-video")
-        video.muted = !mute
+        var video = document.getElementById("embeddedVideo")
+
+        //Create a new Vimeo.Player object
+        const player = new Player(video)
+
+        //When the player is ready, set the volume to 0
+        
+        player.ready().then(function() {
+            player.setVolume((mute===false)?0:1)
+        })
         setMute(!mute)
     }
     const schema = {
@@ -87,11 +94,11 @@ const IndexPage = () => {
                     vid=document.getElementById("background-video")
                     vid.disablePictureInPicture = true
                 </script>
-                
+                <script src="https://player.vimeo.com/api/player.js"></script>
             </Helmet>
             <Menu main="main" />
             <div class="videowrapper">
-                <iframe src="https://player.vimeo.com/video/431172191?muted=1&autoplay=1&loop=1&byline=0&title=0&quality=1080p" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <iframe id="embeddedVideo" src="https://player.vimeo.com/video/431172191?muted=1&autoplay=1&loop=1&byline=0&title=0&quality=1080p&autopause=0&controls=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
             </div>
             
             

@@ -502,7 +502,7 @@ body{
                 right: 0;
                 bottom: 0;
                 background: $green;
-                padding: 0px 20px 0px 20px;
+                padding: 120px 20px 0px 20px;
                 border-top: 8px solid $white;
                 border-left: 8px solid $white;
 
@@ -523,7 +523,6 @@ body{
                 transition-delay: 0s;
                 picture img{
                     width: 80px !important;
-                    position: relative !important;
                     right: 35px !important;
                     top: 50% !important;
                     transform: translateY(-50%);
