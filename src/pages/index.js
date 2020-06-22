@@ -12,9 +12,11 @@ import videoPoster from "../images/recon-start.jpg"
 import speakeroff from "../images/speaker-off.png"
 import speakeron from "../images/speaker-on.png"
 import Player from "@vimeo/player"
+import { useIntl } from "gatsby-plugin-intl"
 
 
 const IndexPage = () => {
+    const intl = useIntl()
     const { site } = useStaticQuery(
         graphql`
             query {
@@ -84,7 +86,7 @@ const IndexPage = () => {
             <SEO title="Recon Films" schemaMarkup={schema} />
             <Helmet>
                 <meta charSet="utf-8" />
-                <title>Recon Films - Esküvő, rendezvény, koncert, brand videó</title>
+                <title>{intl.formatMessage({ id: "main" })}</title>
                 <link rel="icon" type="image/png" href={favicon96} sizes="96x96" />
                 <link rel="icon" type="image/png" href={favicon32} sizes="32x32" />
                 <link rel="icon" type="image/png" href={favicon16} sizes="16x16" />

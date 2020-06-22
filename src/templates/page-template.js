@@ -21,7 +21,6 @@ const PageTemplate = ({ data }) => {
     } = data.contentfulPage
     const contact = data.allContentfulKapcsolat
     const site = data.site.siteMetadata
-    
     const Bold = ({ children }) => <p className="bold">{children}</p>
     const Text = ({ children }) => <p className="content-paragraph">{children}</p>
 
@@ -37,19 +36,19 @@ const PageTemplate = ({ data }) => {
     var returned_instagram
     if (slug === "media" || slug === "multimedia") returned_instagram = <Instagram />
     return (
-        <SubLayout color={color}>
-            <SEO description={subtitle} />
-            <Helmet>
-                <meta charSet="utf-8" />
-                <title>Recon Films - {title} </title>
-                <link rel="icon" type="image/png" href={favicon96} sizes="96x96" />
-                <link rel="icon" type="image/png" href={favicon32} sizes="32x32" />
-                <link rel="icon" type="image/png" href={favicon16} sizes="16x16" />
-                <meta property='og:image' content={site.image} />
-                <meta property='og:url' content={site.siteUrl} />
-                
-                <script type="application/ld+json">
-                    {`
+    <SubLayout color={color}>
+        <SEO title={`${title}`} description={subtitle} />
+        <Helmet>
+            <meta charSet="utf-8" />
+            
+            <link rel="icon" type="image/png" href={favicon96} sizes="96x96" />
+            <link rel="icon" type="image/png" href={favicon32} sizes="32x32" />
+            <link rel="icon" type="image/png" href={favicon16} sizes="16x16" />
+            <meta property="og:image" content={site.image} />
+            <meta property="og:url" content={site.siteUrl} />
+
+            <script type="application/ld+json">
+            {`
                         {
                             "@context": "https://schema.org",
                             "@type": "Organization",
@@ -61,55 +60,66 @@ const PageTemplate = ({ data }) => {
                             }
                         }
                     `}
-                </script>
-            </Helmet>
+          </script>
+        </Helmet>
 
-
-            <div className="title" style={{ textShadow: `4px 4px ${color}dd` }}>
-            {title}
+        <div className="title" style={{ textShadow: `4px 4px ${color}dd` }}>
+          {title}
+        </div>
+        <div className="subtitle" style={{ textShadow: `3px 3px ${color}dd` }}>
+          {subtitle}
+        </div>
+        {childContentfulPageContentRichTextNode === null ? (
+          <></>
+        ) : (
+          <div className="content-text">
+            {documentToReactComponents(
+              childContentfulPageContentRichTextNode.json,
+              options
+            )}
+          </div>
+        )}
+        {returned_instagram}
+        {contact.edges.map(lang => {
+          if (lang.node.slug === slug) {
+            return (
+              <>
+                <div className="name">{lang.node.name}</div>
+                <div className="email">
+                  <a href={`mailto:{lang.node.email}`}>{lang.node.email}</a>
+                </div>
+                <div className="telephone">
+                  <a href={`tel:{lang.node.telephone}`} className="telephone">
+                    {lang.node.telephone}
+                  </a>
+                </div>
+                <div className="based">
+                  {documentToReactComponents(
+                    lang.node.childContentfulKapcsolatLocationRichTextNode.json,
+                    options
+                  )}
+                </div>
+              </>
+            )
+          }
+        })}
+        {youtube === null ? (
+          <></>
+        ) : (
+          <div className="youtube">
+            <div className="video-wrapper" style={{ aspectRatio: 3 / 4 }}>
+              <iframe
+                width="560"
+                height="315"
+                src={youtube}
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
             </div>
-            <div className="subtitle" style={{ textShadow: `3px 3px ${color}dd` }}>
-            {subtitle}
-            </div>
-            {childContentfulPageContentRichTextNode === null ? <></> : <div className="content-text">{documentToReactComponents(childContentfulPageContentRichTextNode.json, options)}</div>}
-            {returned_instagram}
-            {contact.edges.map(lang => {
-                if (lang.node.slug === slug) {
-                    return (
-                        <>
-                        <div className="name">
-                            {lang.node.name}
-                        </div>
-                        <div className="email"><a href={`mailto:{lang.node.email}`} >
-                            {lang.node.email}
-                        </a></div>
-                        <div className="telephone"><a href={`tel:{lang.node.telephone}`} className="telephone">
-                            {lang.node.telephone}
-                        </a></div>
-                        <div className="based">
-                            {documentToReactComponents(lang.node.childContentfulKapcsolatLocationRichTextNode.json, options)}
-                        </div>
-                        </>
-                    )
-                }
-            })}
-            {youtube === null ? (
-                    <></>
-            ) : (
-                    <div className="youtube">
-                        <div className="video-wrapper" style={{ aspectRatio: 3 / 4 }}>
-                            <iframe
-                                width="560"
-                                height="315"
-                                src={youtube}
-                                frameborder="0"
-                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen
-                            ></iframe>
-                        </div>
-                    </div>
-                )} 
-        </SubLayout>
+          </div>
+        )}
+      </SubLayout>
     )
 }
 

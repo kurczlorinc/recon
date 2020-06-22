@@ -4,37 +4,18 @@ import { Link, graphql, StaticQuery } from "gatsby"
 import logo from "../images/recon-logo.png"
 
 export default () => (
-    <StaticQuery
-        query={graphql`
-            query HeadingQuery
-            {
-                file(relativePath: { eq: "recon-logo.png" }) {
-                childImageSharp {
-                    fluid(maxWidth: 100) {
-                    ...GatsbyImageSharpFluid
-                    }
-                }
-                }
-            }
-        `}
-        render={data => (
-        <Link to="/">
-            <div className="rec">
-                <span>
-                    <span></span>
-                </span>
-                </div>
-                <div className="logo-image">
-                    
-                    <picture>
-                        <img src={logo} />
-                    </picture>
-                </div>
-                
-
-            
-        </Link>
-        )}
-    />
+    <Link to="/">
+        <div className="rec">
+            <span>
+                <span></span>
+            </span>
+            </div>
+            <div className="logo-image">
+                <picture>
+                    <img src={logo} />
+                </picture>
+            </div> 
+    </Link>
 )
+
 
