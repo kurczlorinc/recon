@@ -36,18 +36,18 @@ const PageTemplate = ({ data }) => {
     var returned_instagram
     if (slug === "media" || slug === "multimedia") returned_instagram = <Instagram />
     return (
-    <SubLayout color={color}>
+      <SubLayout color={color}>
         <SEO title={`${title}`} description={subtitle} />
         <Helmet>
-            <meta charSet="utf-8" />
-            
-            <link rel="icon" type="image/png" href={favicon96} sizes="96x96" />
-            <link rel="icon" type="image/png" href={favicon32} sizes="32x32" />
-            <link rel="icon" type="image/png" href={favicon16} sizes="16x16" />
-            <meta property="og:image" content={site.image} />
-            <meta property="og:url" content={site.siteUrl} />
+          <meta charSet="utf-8" />
 
-            <script type="application/ld+json">
+          <link rel="icon" type="image/png" href={favicon96} sizes="96x96" />
+          <link rel="icon" type="image/png" href={favicon32} sizes="32x32" />
+          <link rel="icon" type="image/png" href={favicon16} sizes="16x16" />
+          <meta property="og:image" content={site.image} />
+          <meta property="og:url" content={site.siteUrl} />
+
+          <script type="application/ld+json">
             {`
                         {
                             "@context": "https://schema.org",

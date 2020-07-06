@@ -85,7 +85,7 @@ body{
         right: 80px;
         @media screen and (min-width:$phoneSmall) and (max-width:$phoneWidth), screen and (max-height:$phoneHeight){
             bottom: 171px;
-            right: 65px;
+            right: 70px;
         }
         @media screen and (max-width:$phoneSmall){
             bottom: 188px;
@@ -555,18 +555,18 @@ body{
                 animation: blinky 1.5s ease-in-out infinite;
                 z-index: 9999;
                 position: absolute;
-                right: 64px;
-                bottom: 121px;
+                right: 64.5px;
+                bottom: 120px;
                 @media screen and (min-width:$phoneSmall) and (max-width:$phoneWidth), screen and (max-height:$phoneHeight){
                     width:15px;
                     height:15px;
-                    right: 41px;
-                    bottom: 69px;
+                    right: 53px;
+                    bottom: 72px;
                 }
                 @media screen and (max-width:$phoneSmall){
                     width:12px;
                     height:12px;
-                    right: 37px;
+                    right: 41px;
                     bottom: 65px;
                 }
             }
