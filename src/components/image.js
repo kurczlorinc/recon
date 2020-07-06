@@ -1,7 +1,7 @@
 import React from 'react'
 import Img from "gatsby-image"
 import { Link, graphql, StaticQuery } from "gatsby"
-import logo from "../images/recon-logo.png"
+import logo from "../images/recon-logo-2.png"
 
 export default () => (
     <Link to="/">
