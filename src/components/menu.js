@@ -231,7 +231,7 @@ const Menu = ({main, color}) => {
                                                         if (main==="main") {
                                                             return(
                                                                 <a
-                                                                    href="#!"
+                                                                    href="/"
                                                                     key={language}
                                                                     onClick={() => changeLocale(language)}
                                                                 >
@@ -243,7 +243,7 @@ const Menu = ({main, color}) => {
                                                                 <a
                                                                     href={handleSubLanguage()}
                                                                     key={language}
-                                                                    onClick={() => handleSubLanguage()}>
+                                                                    >
                                                                         {languageName[language]}
                                                                 </a>
                                                             )
