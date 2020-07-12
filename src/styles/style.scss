@@ -680,7 +680,6 @@ body{
                     font-family: $noto;
                     font-size: 60px;
                     font-weight: 700;
-                    text-shadow: 4px 4px $purple;
                     margin: 20px 0;
                     text-transform: uppercase;
                     -webkit-text-stroke: 1.5px $white;
@@ -698,7 +697,6 @@ body{
                     font-family: $noto;
                     font-size: 45px;
                     font-weight: 700;
-                    text-shadow: 4px 4px $purple;
                     margin: 40px 0;
                     text-transform: uppercase;
                     -webkit-text-stroke: 1.5px $white;
@@ -912,7 +910,6 @@ body{
                     flex-wrap: wrap;
                     align-items: center;
                     justify-content: center;
-                    background-color:$purple;
                     @media screen and (max-width:$mobile-nav), screen and (max-height:$phoneHeight){
                         display: none;
                     }
@@ -977,7 +974,6 @@ body{
                                                     @supports (-webkit-text-stroke: 1px $white) {
                                                         a{
                                                             -webkit-text-stroke: 1px $white;
-                                                            -webkit-text-fill-color: $purple;
                                                             font-size: 29px;
                                                             &:hover{
                                                                 -webkit-text-fill-color: $white !important;

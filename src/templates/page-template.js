@@ -9,6 +9,7 @@ import favicon16 from "../images/fav_16x16.ico"
 import { BLOCKS, MARKS } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import SEO from "../components/seo"
+import styled from "styled-components"
 
 const PageTemplate = ({ data }) => {
     const {
@@ -33,6 +34,12 @@ const PageTemplate = ({ data }) => {
         },
         renderText: text => text.replace("!", "?"),
     }
+    const Title = styled.div`
+      text-shadow: 4px 4px ${color}dd;
+    `
+    const SubTitle = styled.div`
+      text-shadow: 3px 3px ${color}dd;
+    `
     var returned_instagram
     if (slug === "media" || slug === "multimedia") returned_instagram = <Instagram />
     return (
@@ -63,12 +70,12 @@ const PageTemplate = ({ data }) => {
           </script>
         </Helmet>
 
-        <div className="title" style={{ textShadow: `4px 4px ${color}dd` }}>
+        <Title className="title">
           {title}
-        </div>
-        <div className="subtitle" style={{ textShadow: `3px 3px ${color}dd` }}>
+        </Title>
+        <SubTitle className="subtitle">
           {subtitle}
-        </div>
+        </SubTitle>
         {childContentfulPageContentRichTextNode === null ? (
           <></>
         ) : (

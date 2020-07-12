@@ -2,7 +2,7 @@ import * as React from "react"
 import { Link as GatsbyLink } from "gatsby"
 import Animated from "./animatedComponent"
 import SubMenuElements from "./subMenuElements"
-
+import styled from "styled-components"
 
 export default class UniversalLink extends React.Component<{ color: string, to: string, activeClassName: string, partiallyActive: string, className: string, titles: SubMenuElements[], main: string }>{
     constructor(props: { color: string, to: string, activeClassName: string, partiallyActive: string, className: string, titles: SubMenuElements[], main: string }) {
@@ -13,6 +13,9 @@ export default class UniversalLink extends React.Component<{ color: string, to: 
 
     }
     private title_string_array: string[] = new Array()
+    private MenuFilled = styled.div`
+        -webkit-text-fill-color: ${this.props.color};
+    `
 
     render() {
         if (this.props.className.includes("animate")) {
@@ -38,13 +41,14 @@ export default class UniversalLink extends React.Component<{ color: string, to: 
                             {this.props.titles.map((item, idx) => (
                                 (idx !== 0) ?
                                     <li key={idx} className="sub-nav-option">
-                                        <GatsbyLink
-                                            to={item.url}
-                                            className={this.props.className + " outline"}
-                                            activeClassName={this.props.activeClassName}
-                                            style={{WebkitTextFillColor: this.props.color }}>
-                                            {item.name}
-                                        </GatsbyLink>
+                                        <this.MenuFilled>
+                                            <GatsbyLink
+                                                to={item.url}
+                                                className={this.props.className + " outline"}
+                                                activeClassName={this.props.activeClassName}>
+                                                {item.name}
+                                            </GatsbyLink>
+                                        </this.MenuFilled>
                                     </li> : ""
                             ))}
                         </ul>
