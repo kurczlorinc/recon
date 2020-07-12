@@ -674,7 +674,7 @@ body{
             .inner-content{
                 @media screen and (max-width:$mobile-nav), screen and (max-height:$phoneHeight){
                     width: 100%;
-                    padding-left: 0%;
+                    padding-left: 0px;
                 }
                 .title{
                     font-family: $noto;
@@ -1054,6 +1054,7 @@ body{
         z-index:999;
     }
     .hamburger-menu{  
+        display:none;
         z-index:99;
         top:0;
         bottom:0;
@@ -1410,7 +1411,7 @@ $zoom-slow: all 2.4s cubic-bezier(.55,0,.1,1);
     height: 42px;
     cursor: pointer;
     z-index: 333;
-    
+    touch-action: manipulation;
     &:hover {
         .menu-trigger-bar {
         &:before {
