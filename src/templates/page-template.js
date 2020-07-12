@@ -10,6 +10,8 @@ import { BLOCKS, MARKS } from "@contentful/rich-text-types"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import SEO from "../components/seo"
 import styled from "styled-components"
+import "../styles/reset.scss"
+import "../styles/style.scss"
 
 const PageTemplate = ({ data }) => {
     const {
