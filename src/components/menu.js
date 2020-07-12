@@ -155,7 +155,7 @@ const Menu = ({main, color}) => {
 
     return (
             <>
-            <div className={`wrapper ${renderSwitch1(main)}`}>
+            <div className={`wrapper ${renderSwitch1(main)}`} style={{ backgroundColor: renderSwitch2(main) }}>
                 <div className="data-container">
                     <div className="logo">               
                         <Logo />

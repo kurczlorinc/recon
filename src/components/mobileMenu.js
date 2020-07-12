@@ -68,7 +68,7 @@ const MobileMenu = ({state, color}) => {
     return (
         <div ref={el => (menu = el)} className="hamburger-menu">
             <div ref={el => (revealMenuBackground = el)} className="menu-secondary-background-color"></div>
-            <div ref={el => (revealMenu = el)} className="menu-layer">
+            <div ref={el => (revealMenu = el)} className="menu-layer" style={{ backgroundColor: color}}>
                 <div ref={el => (menuInner = el)} className="hamburger-container">
                     <Home main="hamburger" color={color} />
                 </div>
