@@ -1411,8 +1411,22 @@ $zoom-slow: all 2.4s cubic-bezier(.55,0,.1,1);
     cursor: pointer;
     z-index: 333;
     touch-action: manipulation;
-    
+    @media (pointer:fine) {
+        &:hover {
+            .menu-trigger-bar {
+            &:before {
+                width: 100%;
+            }
+            }
+            
+            .close-trigger-bar {
+            &:before {
+                width: 100%;
+            }
+            }
+        }
     }
+}
 
     .close-trigger {
     z-index: 5;
