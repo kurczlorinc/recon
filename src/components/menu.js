@@ -3,7 +3,6 @@ import UniversalLink from './universalLink'
 import Logo from './image'
 import { useIntl, IntlContextConsumer, changeLocale } from "gatsby-plugin-intl"
 import SubMenuElements from './subMenuElements'
-import styled from "styled-components"
 
 
 const languageName = {
@@ -114,10 +113,6 @@ const Menu = ({main, color}) => {
         }
     }
 
-    const MenuBackground = styled.div`
-        background-color: ${renderSwitch2(main)};
-    `
-
     const handlePath = (id) => {
         if (intl.locale === 'hu') {
             return state.links.find(x => x.id === id).path_hu
@@ -160,7 +155,7 @@ const Menu = ({main, color}) => {
 
     return (
             <>
-            <MenuBackground className={`wrapper ${renderSwitch1(main)}`}>
+            <div className={`wrapper ${renderSwitch1(main)}`}>
                 <div className="data-container">
                     <div className="logo">               
                         <Logo />
@@ -264,7 +259,7 @@ const Menu = ({main, color}) => {
                         
                     </div>
                 </div>
-            </MenuBackground>
+            </div>
             </>
         )
 }

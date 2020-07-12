@@ -70,12 +70,12 @@ const PageTemplate = ({ data }) => {
           </script>
         </Helmet>
 
-        <Title className="title">
+        <div className="title">
           {title}
-        </Title>
-        <SubTitle className="subtitle">
+        </div>
+        <div className="subtitle">
           {subtitle}
-        </SubTitle>
+        </div>
         {childContentfulPageContentRichTextNode === null ? (
           <></>
         ) : (
