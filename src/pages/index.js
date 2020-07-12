@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import SEO from "../components/seo"
 import "../styles/reset.scss"
@@ -13,7 +13,6 @@ import speakeroff from "../images/speaker-off.png"
 import speakeron from "../images/speaker-on.png"
 import Player from "@vimeo/player"
 import { useIntl } from "gatsby-plugin-intl"
-import YouTube from "react-youtube"
 
 const IndexPage = () => {
     const intl = useIntl()
@@ -37,6 +36,12 @@ const IndexPage = () => {
         video.muted = !mute
         setMute(!mute)
     }
+    const videoRef = useRef(null)
+
+    useEffect(() => {
+        const { current: videoElement } = videoRef
+        videoElement.setAttribute("muted", "")
+    }, [])
     const schema = {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
@@ -92,7 +97,7 @@ const IndexPage = () => {
         </Helmet>   
         <Menu main="main" />
         <div class="videowrapper">
-            <video id="background-video" poster={videoPoster} loop muted autoPlay playsinline >
+            <video id="background-video" ref={videoRef} poster={videoPoster} loop muted autoPlay preload="auto" playsInline >
                     <source src="https://reconfilms-out.s3-eu-west-1.amazonaws.com/dash/final_25fps_1080.mp4" type="video/mp4" />
                     <source src="https://reconfilms-out.s3-eu-west-1.amazonaws.com/dash/recon-720.webm" type="video/webm" />
                 Your browser does not support the video tag.
