@@ -136,7 +136,12 @@ const Menu = ({main, color}) => {
             const direct = state.links.find(x => x.slugs[1] === slug)
             if (typeof (direct) === "undefined") {
                 const direct_sub = state.subLinks.find(x => x.slugs[1] === slug)
-                if (typeof direct_sub !== "undefined") return direct_sub.path_en
+                if (typeof direct_sub !== "undefined") {
+                    return direct_sub.path_en
+                }
+                else {
+                    return "/en/"
+                }
             }
             else {
                 return direct.path_en
@@ -145,7 +150,12 @@ const Menu = ({main, color}) => {
             const direct = state.links.find(x => x.slugs[0] === slug)
             if (typeof (direct) === "undefined") {
                 const direct_sub = state.subLinks.find(x => x.slugs[0] === slug)
-                if (typeof direct_sub !== "undefined") return direct_sub.path_hu
+                if (typeof direct_sub !== "undefined") {
+                    return direct_sub.path_hu
+                }
+                else {
+                    return "/hu/"
+                }
             }
             else {
                 return direct.path_hu
