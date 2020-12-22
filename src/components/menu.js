@@ -56,8 +56,8 @@ const Menu = ({main, color}) => {
             , {
                 id: 6,
                 slugs: ['youtube','youtube'],
-                path_en: 'https://www.youtube.com/channel/UC4LEEJh1ejlxQdnc77H8fRA',
-                path_hu:'https://www.youtube.com/channel/UC4LEEJh1ejlxQdnc77H8fRA',
+                path_en: 'https://www.youtube.com/channel/UCHHqFkXLGdXoTcIcQhPZF8Q',
+                path_hu:'https://www.youtube.com/channel/UCHHqFkXLGdXoTcIcQhPZF8Q',
                 text: intl.formatMessage({ id: "yt" }),
                 animation: false
             }

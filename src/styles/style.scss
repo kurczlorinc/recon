@@ -794,6 +794,16 @@ body{
                         }
                     }
                 }
+                .youtube2{
+                    .video-wrapper{
+                        margin-top: -10%;
+                        margin-bottom: -10%;
+                        @media screen and (max-width:$mobile-nav), screen and (max-height:$phoneHeight){
+                            margin-top: 8%;
+                            margin-bottom: 40px;
+                        }
+                    }
+                }
                 .content-text{
                     padding-top: 40px;
                     line-height:1.5;

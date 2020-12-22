@@ -19,7 +19,9 @@ const PageTemplate = ({ data }) => {
         color,
         childContentfulPageContentRichTextNode,
         slug,
+        image_og,
         youtube,
+        youtube2,
     } = data.contentfulPage
     const contact = data.allContentfulKapcsolat
     const site = data.site.siteMetadata
@@ -46,7 +48,7 @@ const PageTemplate = ({ data }) => {
           <link rel="icon" type="image/png" href={favicon96} sizes="96x96" />
           <link rel="icon" type="image/png" href={favicon32} sizes="32x32" />
           <link rel="icon" type="image/png" href={favicon16} sizes="16x16" />
-          <meta property="og:image" content={site.image} />
+          <meta property="og:image" content={image_og.fluid.src} />
           <meta property="og:url" content={site.siteUrl} />
 
           <script type="application/ld+json">
@@ -121,6 +123,22 @@ const PageTemplate = ({ data }) => {
             </div>
           </div>
         )}
+        {youtube2 === null ? (
+          <></>
+        ) : (
+          <div className="youtube youtube2">
+            <div className="video-wrapper" style={{ aspectRatio: 3 / 4 }}>
+              <iframe
+                width="560"
+                height="315"
+                src={youtube2}
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        )}
       </SubLayout>
     )
 }
@@ -132,6 +150,12 @@ export const pageQuery = graphql`
         subtitle
         color
         youtube
+        youtube2
+        image_og{
+          fluid(maxWidth: 613){
+            src
+          }
+        }
         childContentfulPageContentRichTextNode{
             json
         }
