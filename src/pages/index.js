@@ -99,7 +99,7 @@ const IndexPage = () => {
         <Menu main="main" />
         <div class="videowrapper">
             <video id="background-video" ref={videoRef} poster={videoPoster} loop muted autoPlay preload="auto" playsInline >
-                    <source src="https://reconfilms-out.s3-eu-west-1.amazonaws.com/dash/FINAL_SHORT_2020_LOVE_7MBPS.mp4" type="video/mp4" />
+                    <source src="https://reconfilms-out.s3-eu-west-1.amazonaws.com/dash/FINAL_SHORT_2020_LOVE_LOW.mp4" type="video/mp4" />
                     <source src="https://reconfilms-out.s3-eu-west-1.amazonaws.com/dash/recon-720.webm" type="video/webm" />
                 Your browser does not support the video tag.
             </video>

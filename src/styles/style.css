@@ -1503,7 +1503,7 @@ body .speaker img {
 }
 
 .wrap-404 .logo .logo-image {
-  top: 109px;
+  padding-top: 109px;
 }
 
 .wrap-404 .logo .logo-image picture img {
