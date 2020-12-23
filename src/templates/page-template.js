@@ -41,14 +41,17 @@ const PageTemplate = ({ data }) => {
     if (slug === "media" || slug === "multimedia") returned_instagram = <Instagram />
     return (
       <SubLayout color={color}>
-        <SEO title={`${title} - ${subtitle}`} description="Esküvő, rendezvény, koncert, imázsvideó és utómunka" />
+        <SEO
+          title={`${title} - ${subtitle}`}
+          description="Esküvő, rendezvény, koncert, imázsvideó és utómunka"
+        />
         <Helmet>
           <meta charSet="utf-8" />
 
           <link rel="icon" type="image/png" href={favicon96} sizes="96x96" />
           <link rel="icon" type="image/png" href={favicon32} sizes="32x32" />
           <link rel="icon" type="image/png" href={favicon16} sizes="16x16" />
-          <meta property="og:image" content={image_og.fluid.src} />
+          <meta property="og:image" content={`https:${image_og.fluid.src}`} />
           <meta property="og:url" content={site.siteUrl} />
           <script type="application/ld+json">
             {`
