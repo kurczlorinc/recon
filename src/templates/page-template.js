@@ -41,7 +41,7 @@ const PageTemplate = ({ data }) => {
     if (slug === "media" || slug === "multimedia") returned_instagram = <Instagram />
     return (
       <SubLayout color={color}>
-        <SEO title={`${title} - ${subtitle}`} description="Esküvő, rendezvény, koncert, imázs, brand videó és utómunka" />
+        <SEO title={`${title} - ${subtitle}`} description="Esküvő, rendezvény, koncert, imázs videó és utómunka" />
         <Helmet>
           <meta charSet="utf-8" />
 

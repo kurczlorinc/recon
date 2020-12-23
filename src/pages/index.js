@@ -11,6 +11,7 @@ import favicon16 from "../images/fav_16x16.ico"
 import videoPoster from "../images/recon-start.jpg"
 import speakeroff from "../images/speaker-off.png"
 import speakeron from "../images/speaker-on.png"
+import og from "../images/recon-alap-foto-2.jpg"
 import Player from "@vimeo/player"
 import { useIntl } from "gatsby-plugin-intl"
 
@@ -45,7 +46,7 @@ const IndexPage = () => {
     const schema = {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
-        name: "Recon Films - esküvő, rendezvény, koncert, brand videó",
+        name: "Recon Films - esküvő, rendezvény, koncert, imázs videó",
         description: site.siteMetadata.description,
         image: site.siteMetadata.image,
         "@id": site.siteMetadata.siteUrl,
@@ -87,7 +88,7 @@ const IndexPage = () => {
             <link rel="icon" type="image/png" href={favicon96} sizes="96x96" />
             <link rel="icon" type="image/png" href={favicon32} sizes="32x32" />
             <link rel="icon" type="image/png" href={favicon16} sizes="16x16" />
-            <meta property="og:image" content={site.siteMetadata.image} />
+            <meta property="og:image" content={og} />
             <meta property="og:url" content={site.siteMetadata.siteUrl} />
             <script>
             vid=document.getElementById("background-video")
