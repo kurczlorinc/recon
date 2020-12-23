@@ -1,8 +1,16 @@
-import React from "react"
+var React = require("react");
 
+exports.onPreRenderHTML = ({ getHeadComponents, replaceHeadComponents }) => {
+    /**
+     * @type {any[]} headComponents
+     */
+    const headComponents = getHeadComponents();
 
-export const onRenderBody = ({ setPostBodyComponents }) => {
-    setPostBodyComponents([
-        
-    ])
-}
+    headComponents.sort((a, b) => {
+        if (a.props && a.props["data-react-helmet"]) {
+            return 0;
+        }
+        return 1;
+    });
+    replaceHeadComponents(headComponents);
+};
