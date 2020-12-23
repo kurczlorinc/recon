@@ -22,10 +22,7 @@ const IndexPage = () => {
         query {
             site {
             siteMetadata {
-                title
-                description
                 siteUrl
-                image
             }
             }
         }
@@ -46,9 +43,6 @@ const IndexPage = () => {
     const schema = {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
-        name: "Recon Films - Esküvő, rendezvény, koncert, imázsvideó és utómunka",
-        description: site.siteMetadata.description,
-        image: site.siteMetadata.image,
         "@id": site.siteMetadata.siteUrl,
         url: site.siteMetadata.siteUrl,
         telephone: "+36-30-255-6453",

@@ -175,10 +175,7 @@ export const pageQuery = graphql`
     }
     site {
         siteMetadata {
-            title
-            description
             siteUrl
-            image
         }
     }
 }

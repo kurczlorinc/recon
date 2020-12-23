@@ -3,11 +3,8 @@ require("dotenv").config({
 })
 module.exports = {
   siteMetadata: {
-    title: `Recon Films`,
-    description: `Esküvő, rendezvény, koncert, brand videó és utómunka`,
     author: `@kurczloci`,
     siteUrl: `https://www.reconfilms.hu`,
-    image: `../images/recon_og.png`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
