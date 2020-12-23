@@ -11,7 +11,6 @@ import favicon16 from "../images/fav_16x16.ico"
 import videoPoster from "../images/recon-start.jpg"
 import speakeroff from "../images/speaker-off.png"
 import speakeron from "../images/speaker-on.png"
-import og from "../images/recon-alap-foto-2.jpg"
 import Player from "@vimeo/player"
 import { useIntl } from "gatsby-plugin-intl"
 

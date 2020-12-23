@@ -62,7 +62,7 @@ const PageTemplate = ({ data }) => {
                         {
                             "@context": "https://schema.org",
                             "@type": "Organization",
-                            "name": "Recon Films - esküvő, rendezvény, koncert, brand videó",
+                            "name": "Recon Films - esküvő, rendezvény, koncert,imázsvideó",
                             "contactPoint": {
                                 "@type": "ContactPoint",
                                 "telephone": "+36-30-255-6453",
