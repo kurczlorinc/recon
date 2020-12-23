@@ -41,7 +41,7 @@ const PageTemplate = ({ data }) => {
     if (slug === "media" || slug === "multimedia") returned_instagram = <Instagram />
     return (
       <SubLayout color={color}>
-        <SEO title={`${title}`} description={subtitle} />
+        <SEO title={`${title} - ${subtitle}`} description="Esküvő, rendezvény, koncert, imázs, brand videó és utómunka" />
         <Helmet>
           <meta charSet="utf-8" />
 
@@ -50,7 +50,6 @@ const PageTemplate = ({ data }) => {
           <link rel="icon" type="image/png" href={favicon16} sizes="16x16" />
           <meta property="og:image" content={image_og.fluid.src} />
           <meta property="og:url" content={site.siteUrl} />
-
           <script type="application/ld+json">
             {`
                         {
@@ -152,7 +151,7 @@ export const pageQuery = graphql`
         youtube
         youtube2
         image_og{
-          fluid(maxWidth: 613){
+          fluid(maxWidth: 1920){
             src
           }
         }

@@ -48,8 +48,8 @@ const Menu = ({main, color}) => {
             }, {
                 id: 5,
                 slugs: ['instagram','instagram'],
-                path_en: 'https://www.instagram.com/kurczloci/',
-                path_hu:'https://www.instagram.com/kurczloci/',
+                path_en: 'https://www.instagram.com/reconfilms.hu/',
+                path_hu:'https://www.instagram.com/reconfilms.hu/',
                 text: intl.formatMessage({ id: "ig" }),
                 animation: false
             }
