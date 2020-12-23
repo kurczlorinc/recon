@@ -1255,7 +1255,7 @@ body{
             width: 80px;
         }
         .logo-image{  
-            top: 109px;
+            padding-top: 109px;
             picture img{
                 width: 120px !important;
                 @media screen and (max-width:$phoneWidth), screen and (max-height:$phoneHeight){

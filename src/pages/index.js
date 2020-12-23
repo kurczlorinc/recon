@@ -46,7 +46,7 @@ const IndexPage = () => {
     const schema = {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
-        name: "Recon Films - esküvő, rendezvény, koncert, imázs videó",
+        name: "Recon Films - Esküvő, rendezvény, koncert, imázsvideó és utómunka",
         description: site.siteMetadata.description,
         image: site.siteMetadata.image,
         "@id": site.siteMetadata.siteUrl,
