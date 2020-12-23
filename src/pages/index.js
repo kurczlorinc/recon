@@ -82,7 +82,7 @@ const IndexPage = () => {
             <link rel="icon" type="image/png" href={favicon96} sizes="96x96" />
             <link rel="icon" type="image/png" href={favicon32} sizes="32x32" />
             <link rel="icon" type="image/png" href={favicon16} sizes="16x16" />
-            <meta property="og:image" content={og} />
+            
             <meta property="og:url" content={site.siteMetadata.siteUrl} />
             <script>
             vid=document.getElementById("background-video")

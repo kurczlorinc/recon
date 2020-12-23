@@ -3,6 +3,8 @@ require("dotenv").config({
 })
 module.exports = {
   siteMetadata: {
+    title: `Recon Films`,
+    description: `Recon Films - esküvő, rendezvény, koncert, brand videó`,
     author: `@kurczloci`,
     siteUrl: `https://www.reconfilms.hu`,
   },
