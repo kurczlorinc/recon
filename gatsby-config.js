@@ -7,7 +7,7 @@ module.exports = {
     description: `Recon Films - esküvő, rendezvény, koncert, imázsvideó`,
     author: `@kurczloci`,
     siteUrl: `https://www.reconfilms.hu/en`,
-    siteImage: `./src/images/recon-alap-foto-2.jpg`,
+    siteImage: `/src/images/recon-alap-foto-2.jpg`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
