@@ -15,8 +15,9 @@ import og from "../images/recon-alap-foto-2.jpg"
 import Player from "@vimeo/player"
 import { useIntl } from "gatsby-plugin-intl"
 
-const IndexPage = () => {
+const IndexPage = ({ location }) => {
     const intl = useIntl()
+    const url = location.href ? location.href : '';
     const { site } = useStaticQuery(
         graphql`
         query {
@@ -82,7 +83,7 @@ const IndexPage = () => {
             <link rel="icon" type="image/png" href={favicon32} sizes="32x32" />
             <link rel="icon" type="image/png" href={favicon16} sizes="16x16" />
             <meta property="og:image" content={og} />
-            <meta property="og:url" content={site.siteMetadata.siteUrl} />
+            <meta property="og:url" content={url} />
             <script>
             vid=document.getElementById("background-video")
             vid.disablePictureInPicture = true

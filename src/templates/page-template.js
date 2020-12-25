@@ -12,7 +12,7 @@ import SEO from "../components/seo"
 import "../styles/reset.scss"
 import "../styles/style.scss"
 
-const PageTemplate = ({ data }) => {
+const PageTemplate = ({ data, location }) => {
     const {
         title,
         subtitle,
@@ -22,7 +22,8 @@ const PageTemplate = ({ data }) => {
         image_og,
         youtube,
         youtube2,
-    } = data.contentfulPage
+  } = data.contentfulPage
+    const url = location.href ? location.href : ""
     const contact = data.allContentfulKapcsolat
     const site = data.site.siteMetadata
     const Bold = ({ children }) => <p className="bold">{children}</p>
@@ -53,13 +54,13 @@ const PageTemplate = ({ data }) => {
           />
         )}
         <Helmet>
+          <meta property="og:image" content={`https:${image_og.fluid.src}`} />
           <meta charSet="utf-8" />
-          <meta property="og:description" content="almafa" />
+          <meta property="og:description" content="Esküvő, rendezvény, koncert, imázsvideó és utómunka" />
           <link rel="icon" type="image/png" href={favicon96} sizes="96x96" />
           <link rel="icon" type="image/png" href={favicon32} sizes="32x32" />
           <link rel="icon" type="image/png" href={favicon16} sizes="16x16" />
-          <meta property="og:image" content={`https:${image_og.fluid.src}`} />
-          <meta property="og:url" content={site.siteUrl} />
+          <meta property="og:url" content={url} />
           <script type="application/ld+json">
             {`
                         {

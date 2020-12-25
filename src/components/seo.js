@@ -9,7 +9,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import og from "../images/recon-alap-foto-2.jpg"
 
 
 function SEO({ description, lang, meta, title, schemaMarkup }) {
@@ -21,6 +20,7 @@ function SEO({ description, lang, meta, title, schemaMarkup }) {
             title
             description
             author
+            siteImage
           }
         }
       }
@@ -55,7 +55,7 @@ function SEO({ description, lang, meta, title, schemaMarkup }) {
         },
         {
           property: `og:image`,
-          content: og,
+          content: `https://images.ctfassets.net/7xt8e0ubgcjy/5kpu4TQUcZn8mLKNHQs7C3/a3312bc813210c2b8df4caa866269d20/recon-wedding-foto.jpg?w=1920&q=50`,
         },
         {
           name: `twitter:card`,
