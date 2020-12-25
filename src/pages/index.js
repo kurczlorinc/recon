@@ -78,12 +78,12 @@ const IndexPage = ({ location }) => {
         <SEO title="Recon Films" schemaMarkup={schema} />
         <Helmet>
             <meta charSet="utf-8" />
-            <title>{intl.formatMessage({ id: "main" })}</title>
+                <title>{intl.formatMessage({ id: "main" })}</title>
+            <meta property="og:image" content={og} />
+            <meta property="og:url" content={url} />
             <link rel="icon" type="image/png" href={favicon96} sizes="96x96" />
             <link rel="icon" type="image/png" href={favicon32} sizes="32x32" />
             <link rel="icon" type="image/png" href={favicon16} sizes="16x16" />
-            <meta property="og:image" content={og} />
-            <meta property="og:url" content={url} />
             <script>
             vid=document.getElementById("background-video")
             vid.disablePictureInPicture = true
