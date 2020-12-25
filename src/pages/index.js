@@ -79,7 +79,7 @@ const IndexPage = ({ location }) => {
         <Helmet>
             <meta charSet="utf-8" />
                 <title>{intl.formatMessage({ id: "main" })}</title>
-            <meta property="og:image" content="https://www.reconfilms.hu/static/recon-alap-foto-2-c1a1902b5a5e8c8933c21a951872d218.jpg" />
+            <meta property="og:image" content={og} />
             <meta property="og:url" content={url} />
             <link rel="icon" type="image/png" href={favicon96} sizes="96x96" />
             <link rel="icon" type="image/png" href={favicon32} sizes="32x32" />
