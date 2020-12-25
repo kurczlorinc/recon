@@ -41,7 +41,7 @@ const PageTemplate = ({ data, location }) => {
     var returned_instagram
     if (slug === "media" || slug === "multimedia") returned_instagram = <Instagram />
     return (
-      <SubLayout color={color}>
+      <SubLayout color={color} href={url}>
         {subtitle == null ? (
           <SEO
             title={`${title}`}

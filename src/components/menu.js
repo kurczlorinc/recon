@@ -10,7 +10,7 @@ const languageName = {
     hu: "HU",
 }
 
-const Menu = ({main, color}) => {
+const Menu = ({main, color, href}) => {
     const intl = useIntl()
     let [state] = useState({
         english: false,
@@ -130,7 +130,7 @@ const Menu = ({main, color}) => {
     }
 
     const handleSubLanguage = () => {
-        const url = typeof window !== "undefined" ? window.location.href : ""
+        const url = `${href}`
         const slug = url.split("/").pop()
         if (intl.locale === "hu") {
             const direct = state.links.find(x => x.slugs[1] === slug)

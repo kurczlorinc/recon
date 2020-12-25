@@ -21,6 +21,7 @@ function SEO({ description, lang, meta, title, schemaMarkup }) {
             description
             author
             siteImage
+            siteUrl
           }
         }
       }
@@ -54,8 +55,8 @@ function SEO({ description, lang, meta, title, schemaMarkup }) {
           content: `website`,
         },
         {
-          property: `og:image`,
-          content: `https://images.ctfassets.net/7xt8e0ubgcjy/5kpu4TQUcZn8mLKNHQs7C3/a3312bc813210c2b8df4caa866269d20/recon-wedding-foto.jpg?w=1920&q=50`,
+          property: `og:url`,
+          content: site.siteMetadata.siteUrl,
         },
         {
           name: `twitter:card`,

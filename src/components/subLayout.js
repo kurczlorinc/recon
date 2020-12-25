@@ -10,7 +10,7 @@ export default class SubLayout extends React.Component {
                     <div className="menu-container">
                         <div className="content-background"></div>
                         <div className="content-wrap">
-                            <Menu main="sub" color={this.props.color}/>
+                            <Menu main="sub" color={this.props.color} href={this.props.href}/>
                             <div className="page-content">
                                 <div className="inner-content">
                                     {this.props.children}
