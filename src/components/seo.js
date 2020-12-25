@@ -52,7 +52,7 @@ function SEO({ description, lang, meta, title, schemaMarkup }) {
         },
         {
           property: `og:type`,
-          content: `website`,
+          content: `article`,
         },
         {
           property: `og:url`,

@@ -56,6 +56,7 @@ const PageTemplate = ({ data, location }) => {
         <Helmet>
           <meta property="og:image" content={`https:${image_og.fluid.src}`} />
           <meta property="og:url" content={url} />
+          <meta property="og:type" content="article" />
           <meta charSet="utf-8" />
           <meta property="og:description" content="Esküvő, rendezvény, koncert, imázsvideó és utómunka" />
           <link rel="icon" type="image/png" href={favicon96} sizes="96x96" />
