@@ -29,7 +29,6 @@ export const onPreRenderHTML = ({
 
   const sortedHeadComponents = headComponents
     .slice(0)
-    .flat()
     .sort((x, y) => {
       return order.indexOf(x.type) - order.indexOf(y.type)
     })
