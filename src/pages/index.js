@@ -44,7 +44,6 @@ const IndexPage = () => {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
         "@id": site.siteMetadata.siteUrl,
-        url: site.siteMetadata.siteUrl,
         telephone: "+36-30-255-6453",
         address: {
         "@type": "PostalAddress",
