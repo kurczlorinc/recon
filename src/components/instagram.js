@@ -9,16 +9,16 @@ const Instagram = ({ data }) => {
         <>
         <div className="ig-photos">
             <div className="instagram-gallery">
-                {data.allInstaNode.edges.map((item, i) => (
-                    item.node.localFile ? (
+                {data.allInstagramContent.edges.map((item, i) => (
+                    item.node.localImage ? (
                             <a
-                                href={`https://www.instagram.com/p/${item.node.id}/`}
+                                href={`${item.node.permalink}`}
                                 target='_blank'
                                 rel="noopener noreferrer"
                                 tabIndex='0'
                                 className="instagram-image"
                             >
-                            <img src={item.node.thumbnails[4].src} />
+                            <img src={item.node.localImage.childImageSharp.fluid.src} />
                             </a>
                     ) : (<div></div>))
                 )}
@@ -42,22 +42,17 @@ export default props => (
     <StaticQuery
         query={graphql`
         query {
-            allInstaNode(sort: { fields: timestamp, order: DESC }, limit: 12) {
+            allInstagramContent(sort: { fields: timestamp, order: DESC }, limit: 12) {
                 edges {
-                    node {
-                        id
-                        caption
-                        localFile {
+                    node {  
+                        permalink
+                        media_url
+                        localImage {
                             childImageSharp {
                                 fluid(maxHeight: 500, maxWidth: 500 quality: 100) {
                                     ...GatsbyImageSharpFluid_withWebp
                                 }
                             }
-                        }
-                        thumbnails{
-                            src
-                            config_width
-                            config_height
                         }
                     }
                 }

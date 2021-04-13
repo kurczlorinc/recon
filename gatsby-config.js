@@ -62,6 +62,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-instagram-all`,
+      options: {
+        access_token: process.env.INSTAGRAM_TOKEN,
+      },
+    },
+    {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
         id: process.env.GOOGLE_TAGMANAGER_ID,
